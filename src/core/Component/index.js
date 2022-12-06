@@ -1,1 +1,1 @@
-export * from "./Component.js";
+export * from "./Component";

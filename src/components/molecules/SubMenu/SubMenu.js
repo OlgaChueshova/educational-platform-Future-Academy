@@ -1,4 +1,5 @@
 import { Component } from '../../../core';
+import { Link } from '../../atoms';
 import './submenu.scss';
 
 export class SubMenu extends Component {
@@ -8,19 +9,20 @@ export class SubMenu extends Component {
         this.state = {
             isOpen: false
         }
+        this.toggleSubMenu = this.toggleSubMenu.bind(this)
     }
 
-    toggleSubMenu(evt) {
+    toggleSubMenu() {
         this.setState((state) => {
             return {
                 ...state,
-                isOpen: !isOpen,
+                isOpen: !this.state.isOpen,
             }
         })
     }
 
     componentDidMount() {
-        window.addEventListener('toggle-SubMenu', toggleSubMenu);
+        window.addEventListener('toggle-SubMenu', this.toggleSubMenu);
     }
 
     static get obseredAttributes() {
@@ -28,19 +30,19 @@ export class SubMenu extends Component {
     }
 
     componentWillUnMount() {
-        window.removeEventListener('toggle-SubMenu', toggleSubMenu);
+        window.removeEventListener('toggle-SubMenu', this.toggleSubMenu);
     }
 
     render() {
         return `
             <ul class="header__navigation--submenu ${this.state.isOpen ? "header__navigation--submenu-active" : ""}">
                 ${this.props.map((item) => {
-                    return `
+            return `
                         <li class="header__navigation--submenu-item">
-                            <a href="${item.href}" class="header__navigation--submenu-link">${item.label}</a>
+                            <it-link link='${JSON.stringify(item)}'></it-link>
                         </li>
                     `
-                }).join(' ')}
+        }).join(' ')}
             </ul>
         `
     }

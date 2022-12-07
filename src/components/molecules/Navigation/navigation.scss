@@ -26,12 +26,34 @@
     vertical-align: text-top;
 }
 
-.header__location--link::after {
-    content: url('../../../images/icons/pointer-bottom.svg');
+.header__navigation--dropdown {
+    position: relative;
+}
+
+.header__navigation--dropdown::after {
+    content: url('../../../assets/images/icons/pointer-bottom.svg');
     width: 8px;
     height: 4px;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -1px;
+    right: -15px;
 }
+
+.header__navigation--dropdown-active::after {
+    content: url('../../../assets/images/icons/pointer-top.svg');
+    width: 8px;
+    height: 4px;
+    position: absolute;
+    top: -1px;
+    right: -15px;
+}
+
+.header__navigation--dropdown-active::before {
+    content: url('../../../assets/images/gradient/location-active.svg');
+    position: absolute;
+    top: 49px;
+    left: -5px;
+    width: 190px;
+}
+
 

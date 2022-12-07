@@ -49,6 +49,26 @@ export class Header extends Component {
                         label: 'Азов',
                         href: ''
                     },
+                    {
+                        label: 'Калуга',
+                        href: ''
+                    },
+                    {
+                        label: 'Ростов-на-Дону',
+                        href: ''
+                    },
+                    {
+                        label: 'Тобольск',
+                        href: ''
+                    },
+                    {
+                        label: 'Архангельск',
+                        href: ''
+                    },
+                    {
+                        label: 'Петропаловск',
+                        href: ''
+                    },
                 ],
             },
             {

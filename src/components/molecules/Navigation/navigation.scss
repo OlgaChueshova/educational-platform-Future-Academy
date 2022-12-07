@@ -1,0 +1,37 @@
+.header__navigation {
+    flex: 1 1 auto;
+}
+
+.header__navigation--list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.header__navigation--list-item {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    vertical-align: baseline;
+    position: relative;
+}
+
+.header__navigation--link {
+    text-decoration: none;
+}
+
+.header__navigation--icon {
+    vertical-align: text-top;
+}
+
+.header__location--link::after {
+    content: url('../../../images/icons/pointer-bottom.svg');
+    width: 8px;
+    height: 4px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+

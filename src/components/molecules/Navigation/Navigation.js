@@ -24,8 +24,10 @@ export class Navigation extends Component {
         const target = evt.target.closest('.header__navigation--dropdown');
         if (!target) {
             this.dispatch('remove-subMenu');
-            const targetActive = document.querySelector('.header__navigation--dropdown-active');
-            targetActive.classList.toggle('header__navigation--dropdown-active');
+            const targetActive = document.querySelector('.header__navigation--dropdown');
+            if(targetActive.classList.contains('header__navigation--dropdown-active')) {
+                targetActive.classList.toggle('header__navigation--dropdown-active');
+            }
         }
     }
 

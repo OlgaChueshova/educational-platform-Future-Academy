@@ -1,7 +1,7 @@
 import { Component } from '../../../core';
-import { Link } from '../../atoms';
-import { SubMenu } from '../Submenu';
-import './navigation.scss'
+import './navigation.scss';
+import '../../../components';
+import { RouteLink } from '../../../core';
 
 export class Navigation extends Component {
     constructor() {
@@ -26,7 +26,7 @@ export class Navigation extends Component {
             this.dispatch('remove-subMenu');
             const targetActive = document.querySelector('.header__navigation--dropdown');
             if(targetActive.classList.contains('header__navigation--dropdown-active')) {
-                targetActive.classList.toggle('header__navigation--dropdown-active');
+                targetActive.classList.remove('header__navigation--dropdown-active');
             }
         }
     }
@@ -45,13 +45,18 @@ export class Navigation extends Component {
         <nav>
             <ul class="header__navigation--list">
                 ${this.props.map((item) => {
-            return `
+                     return `
                         <li class="header__navigation--list-item ${item.sublinks ? "header__navigation--dropdown" : ''}">
-                            <it-link link='${JSON.stringify(item)}'></it-link>
-                            ${item.sublinks ? `<it-submenu sublinks='${JSON.stringify(item.sublinks)}'><it-submenu>` : ''}
+                            ${item.component 
+                            ? `<it-route-link link='${JSON.stringify(item)}'></it-route-link>`
+                            : `<it-link link='${JSON.stringify(item)}'></it-link>` 
+                            }
+                            ${item.sublinks 
+                            ? `<it-submenu sublinks='${JSON.stringify(item.sublinks)}'></it-submenu>`
+                            : ''}
                         </li>
                     `
-        }).join(' ')}
+                }).join(' ')}
             </ul>
         </nav>
         `

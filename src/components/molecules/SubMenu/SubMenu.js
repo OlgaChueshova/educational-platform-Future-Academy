@@ -1,8 +1,8 @@
-import { Component } from '../../../core';
+import * as core from '../../../core';
 import { Link } from '../../atoms';
 import './submenu.scss';
 
-export class SubMenu extends Component {
+export class SubMenu extends core.Component {
     constructor() {
         super();
         this.props = JSON.parse(this.getAttribute('sublinks'));

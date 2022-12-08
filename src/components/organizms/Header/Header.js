@@ -1,85 +1,89 @@
-import { Component } from "../../../core";
+import * as core from "../../../core";
 import './header.scss'
 import { Logo } from "../../atoms";
 import { Navigation } from "../../molecules/Navigation/Navigation";
 
-export class Header extends Component {
+export class Header extends core.Component {
     constructor() {
         super();
         this.links = [
             {
-                label: 'Все курсы',
-                href: '//',
+                title: 'Все курсы',
+                path: '/courses',
                 icon: '../../../assets/images/icons/hamburger.svg',
+                component: 'courses-page'
             },
             {
-                label: 'Мероприятия',
-                href: '//'
+                title: 'Мероприятия',
+                path: '*',
+                component: 'error-page'
             },
             {
-                label: 'База знаний',
-                href: '//'
+                title: 'База знаний',
+                path: '*',
+                component: 'error-page'
             },
             {
-                label: 'Карьера',
-                href: '//'
+                title: 'Карьера',
+                path: '*',
+                component: 'error-page'
             },
             {
-                label: 'Нижний Новгород',
-                href: '',
+                title: 'Нижний Новгород',
+                path: '',
                 icon: '../../../assets/images/icons/location.svg',
                 sublinks: [
                     {
-                        label: 'Москва',
-                        href: ''
+                        title: 'Москва',
+                        path: ''
                     },
                     {
-                        label: 'Новосибирск',
-                        href: ''
+                        title: 'Новосибирск',
+                        path: ''
                     },
                     {
-                        label: 'Санкт-Петербург',
-                        href: ''
+                        title: 'Санкт-Петербург',
+                        path: ''
                     },
                     {
-                        label: 'Астрахань',
-                        href: ''
+                        title: 'Астрахань',
+                        path: ''
                     },
                     {
-                        label: 'Азов',
-                        href: ''
+                        title: 'Азов',
+                        path: ''
                     },
                     {
-                        label: 'Калуга',
-                        href: ''
+                        title: 'Калуга',
+                        path: ''
                     },
                     {
-                        label: 'Ростов-на-Дону',
-                        href: ''
+                        title: 'Ростов-на-Дону',
+                        path: ''
                     },
                     {
-                        label: 'Тобольск',
-                        href: ''
+                        title: 'Тобольск',
+                        path: ''
                     },
                     {
-                        label: 'Архангельск',
-                        href: ''
+                        title: 'Архангельск',
+                        path: ''
                     },
                     {
                         label: 'Петропаловск',
-                        href: ''
+                        path: ''
                     },
                 ],
             },
             {
-                label: '8 800 950-33-98',
-                href: 'tel:88009503398'
+                title: '8 800 950-33-98',
+                path: 'tel:88009503398'
             },
             {
-                label: 'Войти',
+                title: 'Войти',
                 icon: '../../../assets/images/icons/person.svg',
-                href: '//',
-                icon: '../../../assets/images/icons/person.svg',
+                path: '/signUp',
+                component: 'sign-up-page'
             },
         ];
         this.logo = {

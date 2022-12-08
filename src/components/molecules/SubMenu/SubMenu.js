@@ -9,10 +9,11 @@ export class SubMenu extends Component {
         this.state = {
             isOpen: false
         }
-        this.toggleSubMenu = this.toggleSubMenu.bind(this)
+        this.toggleSubMenu = this.toggleSubMenu.bind(this);
+        this.removeSubMenu = this.removeSubMenu.bind(this);
     }
 
-    toggleSubMenu() {
+    toggleSubMenu(evt) {
         this.setState((state) => {
             return {
                 ...state,
@@ -21,8 +22,18 @@ export class SubMenu extends Component {
         })
     }
 
+    removeSubMenu(evt) {
+        this.setState((state) => {
+            return {
+                ...state,
+                isOpen: false,
+            }
+        })
+    }
+
     componentDidMount() {
-        window.addEventListener('toggle-SubMenu', this.toggleSubMenu);
+        window.addEventListener('toggle-subMenu', this.toggleSubMenu);
+        window.addEventListener('remove-subMenu', this.removeSubMenu);
     }
 
     static get obseredAttributes() {

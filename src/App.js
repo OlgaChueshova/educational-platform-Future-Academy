@@ -25,7 +25,6 @@ export class App extends core.Component {
                         <it-route path="/courses/:id" component="course-page" title="Course Page"></it-route>
                         <it-route path="*" component="error-page" title="Not Found Page"></it-route>
                         <it-outlet></it-outlet>
-                        <it-footer><it-footer>
                     </it-router>
                 </main>
             <it-footer></it-footer>

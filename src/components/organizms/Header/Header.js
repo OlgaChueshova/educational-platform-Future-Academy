@@ -70,7 +70,7 @@ export class Header extends core.Component {
                         path: ''
                     },
                     {
-                        label: 'Петропаловск',
+                        title: 'Петропаловск',
                         path: ''
                     },
                 ],

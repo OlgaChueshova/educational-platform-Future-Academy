@@ -49,7 +49,7 @@ export class Navigation extends Component {
                         <li class="header__navigation--list-item ${item.sublinks ? "header__navigation--dropdown" : ''}">
                             ${item.component 
                             ? `<it-route-link link='${JSON.stringify(item)}'></it-route-link>`
-                            : `<it-link link='${JSON.stringify(item)}'></it-link>` 
+                            : `<it-link link='${JSON.stringify(item)}' class="header__navigation--link"></it-link>` 
                             }
                             ${item.sublinks 
                             ? `<it-submenu sublinks='${JSON.stringify(item.sublinks)}'></it-submenu>`

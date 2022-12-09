@@ -13,11 +13,11 @@ export class Link extends Component {
 
     render() {
         return `
-            <a href='${this.props.path}' class="header__navigation--link">
+            <a href='${this.props.path}'>
                 ${this.props.icon 
                     ? `<img src='${this.props.icon}' alt="hamburger" class="header__navigation--icon">`
                     : ''}
-                <span>${this.props.title}</span>
+                <span>${this.props.title ? `${this.props.title}` : ''}</span>
             </a>
         `
     }

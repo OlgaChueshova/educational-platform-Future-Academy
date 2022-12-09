@@ -13,7 +13,7 @@ export class RouteLink extends core.Component {
 s
     onClick = (evt) => {
         evt.preventDefault();
-        // console.log(this.props.path)
+        console.log(this.props)
         this.dispatch('change-route', { target: this.props.path })
     }
 

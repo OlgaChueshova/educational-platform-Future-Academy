@@ -50,7 +50,7 @@ export class SubMenu extends core.Component {
                 ${this.props.map((item) => {
             return `
                         <li class="header__navigation--submenu-item">
-                            <it-link link='${JSON.stringify(item)}'></it-link>
+                            <it-link class="header__navigation--link" link='${JSON.stringify(item)}'></it-link>
                         </li>
                     `
         }).join(' ')}

@@ -10,7 +10,7 @@ export class Footer extends core.Component {
                 {
                     logo: 'logo',
                     path: '#',
-                    icon: '../../../assets/images/logo/logo-white.svg'
+                    src1: '../../../assets/images/logo/logo-white.svg'
                 },
                 [
                     {
@@ -26,33 +26,33 @@ export class Footer extends core.Component {
                     },
                     [
                         {
-                            title: 'vk',
+                            label: 'vk',
                             path: 'https://vk.com/',
-                            icon1: '../../../assets/images/icons/networks/vk-white.svg',
+                            icon: '../../../assets/images/icons/networks/vk-white.svg',
                             icon2: '../../../assets/images/icons/networks/vk-gradient.svg',
                         },
                         {
-                            title: 'instagram',
+                            label: 'instagram',
                             path: 'https://instagram.com/',
-                            icon1: '../../../assets/images/icons/networks/instagram-white.svg',
+                            icon: '../../../assets/images/icons/networks/instagram-white.svg',
                             icon2: '../../../assets/images/icons/networks/instagram-gradient.svg',
                         },
                         {
-                            title: 'fb',
+                            label: 'fb',
                             path: 'https://www.facebook.com/',
-                            icon1: '../../../assets/images/icons/networks/fb-white.svg',
+                            icon: '../../../assets/images/icons/networks/fb-white.svg',
                             icon2: '../../../assets/images/icons/networks/facebook-gradient.svg',
                         },
                         {
-                            title: 'youtube',
+                            label: 'youtube',
                             path: 'https://youtube.com/',
-                            icon1: '../../../assets/images/icons/networks/youtube-white.svg',
+                            icon: '../../../assets/images/icons/networks/youtube-white.svg',
                             icon2: '../../../assets/images/icons/networks/youtube-gradient.svg',
                         },
                         {
-                            title: 'telegram',
+                            label: 'telegram',
                             path: 'https://telegram.com/',
-                            icon1: '../../../assets/images/icons/networks/telegram-wh.svg',
+                            icon: '../../../assets/images/icons/networks/telegram-wh.svg',
                             icon2: '../../../assets/images/icons/networks/telegram-gradient.svg',
                         },
                     ],
@@ -199,9 +199,9 @@ export class Footer extends core.Component {
                 title: 'Информация',
                 sublinks: [
                     {
-                        title: 'Об академии',
-                        path: '*',
-                        component: 'about-us'
+                        title: 'Home Page',
+                        path: '/',
+                        component: 'home-page'
                     },
                     {
                         title: 'Мероприятия',

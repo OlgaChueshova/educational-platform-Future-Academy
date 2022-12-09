@@ -1,0 +1,78 @@
+.footer-contacts__sub-list>ul{
+    margin-top: 38px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-contacts__sub-list--item {
+    margin-right: 20px;
+}
+
+.footer-contacts__sub-list--item:nth-of-type(1) img {
+    width: 21px;
+    height: 26px;
+}
+
+.footer-contacts__sub-list--item:nth-of-type(2) img {
+    width: 16px;
+    height: 26px;
+}
+
+.footer-contacts__sub-list--item:nth-of-type(3) img {
+    width: 18px;
+    height: 26px;
+}
+
+.footer-contacts__sub-list--item:nth-of-type(4) img {
+    width: 21px;
+    height: 26px;
+}
+
+.footer-contacts__sub-list--item:nth-of-type(5) img {
+    width: 16px;
+    height: 26px;
+}
+
+.footer-contacts__sub-list--link>img:nth-of-type(2) {
+    display: none;
+}
+
+.footer-contacts__sub-list--link:hover>img:nth-of-type(2) {
+    display: block;
+    transform: scale(130%);
+    transition: 1s;
+}
+
+.footer-contacts__sub-list--link:hover>img:nth-of-type(1) {
+    display: none;
+}
+
+
+
+.footer-for-children__link a,
+.footer-for-teenagers__link a,
+.footer-for-adults__link a,
+.footer-other-information__link a {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+.footer-other-information__sub-list--link a,
+.footer-for-teenagers__sub-list--link a,
+.footer-for-children__sub-list--link a,
+.footer-for-adults__sub-list--link a {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 34px;
+    color: #FFFFFF;
+}
+
+.footer-navigation__list--item a:hover, .footer-navigation__list--item ul li a:hover {
+    color: var(--gray-2);
+}

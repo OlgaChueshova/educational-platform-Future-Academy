@@ -1,6 +1,9 @@
+.footer-navigation {
+    padding-left: 370px;
+}
+
 .footer-navigation__list {
     display: flex;
-    justify-content: start;
 }
 
 .footer-navigation__list--item {
@@ -30,7 +33,7 @@
     margin-bottom: 12px;
 }
 
-.footer-contacts__list--item>a,
+.footer-contacts__list--item a,
 .footer-contacts__list--item {
     font-family: 'Montserrat';
     font-weight: 500;
@@ -39,7 +42,7 @@
     color: #FFFFFF;
 }
 
-.footer-contacts__list--item>a:hover {
+.footer-contacts__list--item a:hover {
     color: var(--gray-2);
 }
 
@@ -48,87 +51,5 @@
     font-size: 18px;
 }
 
-.footer-contacts__sub-list {
-    margin-top: 38px;
-    display: flex;
-}
 
-.footer-contacts__sub-list--item {
-    margin-right: 20px;
-}
 
-.footer-contacts__sub-list--item:nth-of-type(1) img {
-    width: 21px;
-    height: 26px;
-}
-
-.footer-contacts__sub-list--item:nth-of-type(2) img {
-    width: 16px;
-    height: 26px;
-}
-
-.footer-contacts__sub-list--item:nth-of-type(3) img {
-    width: 18px;
-    height: 26px;
-}
-
-.footer-contacts__sub-list--item:nth-of-type(4) img {
-    width: 21px;
-    height: 26px;
-}
-
-.footer-contacts__sub-list--item:nth-of-type(5) img {
-    width: 16px;
-    height: 26px;
-}
-
-.footer-contacts__sub-list--link>img:nth-of-type(2) {
-    display: none;
-}
-
-.footer-contacts__sub-list--link:hover>img:nth-of-type(2) {
-    display: block;
-    transform: scale(130%);
-    transition: 1s;
-}
-
-.footer-contacts__sub-list--link:hover>img:nth-of-type(1) {
-    display: none;
-}
-
-.footer-navigation__contacts--copyright {
-    font-family: 'Montserrat';
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 15px;
-    color: var(--gray-4);
-    margin-left: 5px;
-}
-
-.footer-for-children__link,
-.footer-for-teenagers__link,
-.footer-for-adults__link,
-.footer-other-information__link {
-    font-family: 'Montserrat';
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 26px;
-    color: #FFFFFF;
-    margin-bottom: 16px;
-    display: inline-block;
-}
-
-.footer-other-information__sub-list--link,
-.footer-for-teenagers__sub-list--link,
-.footer-for-children__sub-list--link,
-.footer-for-adults__sub-list--link {
-    font-family: 'Montserrat';
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 34px;
-    color: #FFFFFF;
-}
-
-.footer-navigation__list--item>a:hover, .footer-navigation__list--item>ul>li>a:hover {
-    color: var(--gray-2);
-}

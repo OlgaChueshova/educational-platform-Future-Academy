@@ -1,8 +1,9 @@
 .footer {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100vw;
     min-height: 560px;
     background-color: var(--dark-blue);
     padding-top: 70px;
+    
 }

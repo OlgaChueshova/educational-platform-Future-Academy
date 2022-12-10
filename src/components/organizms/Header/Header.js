@@ -1,7 +1,7 @@
 import * as core from "../../../core";
-import './header.scss'
 import { Logo } from "../../atoms";
-import { Navigation } from "../../molecules/Navigation/Navigation";
+import { HeaderNavigation } from "../../molecules";
+import './header.scss'
 
 export class Header extends core.Component {
     constructor() {
@@ -100,7 +100,7 @@ export class Header extends core.Component {
         return `
         <header class="header header-wrapper">
             <it-logo logo='${JSON.stringify(this.logo)}' class="header__logo"></it-logo>
-            <it-navigation links='${JSON.stringify(this.links)}' class="header__navigation"></it-navigation>
+            <header-navigation links='${JSON.stringify(this.links)}' class="header__navigation"></header-navigation>
         </header>
         `
     }

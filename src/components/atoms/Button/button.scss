@@ -1,0 +1,19 @@
+.form__blank--button button {
+    grid-area: btn;
+    background-color: var(--orange);
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 26px;
+    color: white;
+    text-align: center;
+    outline: 0 !important;
+    border: none !important;
+    height: 50px;
+    width: 100%;
+}
+
+.form__blank--button:hover {
+    background-color: #FFAE4D;
+}
+

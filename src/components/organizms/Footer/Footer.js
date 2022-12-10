@@ -1,5 +1,5 @@
 import * as core from '../../../core';
-import { FooterNavigation } from '../../molecules';
+import { FooterNavigation } from '../../molecules/FooterNavigation/FooterNavigation';
 import './footer.scss';
 
 export class Footer extends core.Component {

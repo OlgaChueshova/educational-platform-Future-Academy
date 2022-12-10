@@ -1,0 +1,27 @@
+.form__blank--container input {
+    border-radius: 6px;
+    background-color: #e3e6f3;
+    padding-left: 19px;
+    outline: 0 !important;
+    border: none !important;
+    width: 100%;
+    height: 100%;
+}
+
+.form__blank--name {
+    grid-area: name;
+}
+
+.form__blank--tel {
+    grid-area: tel;
+}
+
+.form__blank--email {
+    grid-area: mail;
+}
+
+.form__blank input:focus {
+    border: 2px solid transparent;
+    border-image: linear-gradient(to right, #F7941D, #27AAE1);
+    border-image-slice: 1;
+}

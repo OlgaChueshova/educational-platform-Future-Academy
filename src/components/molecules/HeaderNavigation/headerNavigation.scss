@@ -1,0 +1,59 @@
+.header__navigation {
+    flex: 1 1 auto;
+}
+
+.header__navigation--list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.header__navigation--list-item {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    vertical-align: baseline;
+    position: relative;
+}
+
+.header__navigation--link {
+    text-decoration: none;
+}
+
+.header__navigation--icon {
+    vertical-align: text-top;
+}
+
+.header__navigation--dropdown {
+    position: relative;
+}
+
+.header__navigation--dropdown::after {
+    content: url('../../../assets/images/icons/pointer-bottom.svg');
+    width: 8px;
+    height: 4px;
+    position: absolute;
+    top: -1px;
+    right: -15px;
+}
+
+.header__navigation--dropdown-active::after {
+    content: url('../../../assets/images/icons/pointer-top.svg');
+    width: 8px;
+    height: 4px;
+    position: absolute;
+    top: -1px;
+    right: -15px;
+}
+
+.header__navigation--dropdown-active::before {
+    content: url('../../../assets/images/gradient/location-active.svg');
+    position: absolute;
+    top: 49px;
+    left: -5px;
+    width: 190px;
+}
+
+

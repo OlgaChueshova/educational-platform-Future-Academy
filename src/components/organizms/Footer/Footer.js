@@ -19,6 +19,8 @@ export class Footer extends core.Component {
                     },
                     {
                         title: 'г.Москва, ул.Ленина, 50',
+                        path: '*',
+                        component: '/location'
                     },
                     {
                         title: 'info@futureacademy.ru',
@@ -56,10 +58,10 @@ export class Footer extends core.Component {
                             icon2: '../../../assets/images/icons/networks/telegram-gradient.svg',
                         },
                     ],
+                    {
+                        title: '&#169 ХОД, Future Academy',
+                    },
                 ],
-                {
-                    title: '&#169 ХОД, Future Academy'
-                },
             ],
             {
                 title: 'Детям',

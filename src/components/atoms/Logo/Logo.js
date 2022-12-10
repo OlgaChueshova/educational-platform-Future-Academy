@@ -12,11 +12,10 @@ export class Logo extends Component {
     }
 
     render() {
-        console.log(this.props)
         return `
-        <div class="header__logo">
-            <img src="${this.props.src1}" alt="logo">
-        </div>
+            <div>
+                <img src="${this.props.src1}" alt="logo">
+            </div>
         `
     }
 }

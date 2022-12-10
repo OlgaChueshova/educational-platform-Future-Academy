@@ -9,6 +9,7 @@ export class Header extends core.Component {
         this.links = [
             {
                 title: 'Все курсы',
+                label: 'Hamburger',
                 path: '/courses',
                 icon: '../../../assets/images/icons/hamburger.svg',
                 component: 'courses-page'
@@ -30,6 +31,7 @@ export class Header extends core.Component {
             },
             {
                 title: 'Нижний Новгород',
+                label: 'Location',
                 path: '',
                 icon: '../../../assets/images/icons/location.svg',
                 sublinks: [
@@ -81,6 +83,7 @@ export class Header extends core.Component {
             },
             {
                 title: 'Войти',
+                label: 'Person',
                 icon: '../../../assets/images/icons/person.svg',
                 path: '/signUp',
                 component: 'sign-up-page'
@@ -96,7 +99,7 @@ export class Header extends core.Component {
     render() {
         return `
         <header class="header header-wrapper">
-            <it-logo logo='${JSON.stringify(this.logo)}'></it-logo>
+            <it-logo logo='${JSON.stringify(this.logo)}' class="header__logo"></it-logo>
             <it-navigation links='${JSON.stringify(this.links)}' class="header__navigation"></it-navigation>
         </header>
         `

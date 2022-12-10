@@ -21,14 +21,16 @@ export class List extends Component {
                 ${this.props.map((item) => {
                     return `
                         ${Array.isArray(item) 
-                            ? `<it-sub-list class="footer-contacts__list" sublinks='${JSON.stringify(item)}'></it-sublist>` 
+                            ? `<it-sub-list class="footer-contacts__sub-list" sublinks='${JSON.stringify(item)}'></it-sublist>` 
                             :   `
-                                <li class="footer-for-children__sub-list">
+                                <li class="footer-section__list--item">
                                     ${item.logo 
-                                    ? `<it-logo class="footer-contacts" logo='${JSON.stringify(item)}'></it-logo>`
+                                    ? `<it-logo class="footer-contacts__logo" logo='${JSON.stringify(item)}'></it-logo>`
                                     : `${item.component 
-                                        ? `<it-route-link class="footer-for-children__sub-list--link" link='${JSON.stringify(item)}'></it-route-link>`
-                                        :  `<it-link class="footer-for-children__sub-list--link" link='${JSON.stringify(item)}'></it-link>`
+                                        ? `<it-route-link class="footer-section__list--link" link='${JSON.stringify(item)}'></it-route-link>`
+                                        :  `${item.path 
+                                            ? `<it-link class="footer-section__list--link" link='${JSON.stringify(item)}'></it-link>`
+                                            : `<p class="footer-contacts__copyright">${item.title}</p>`}`
                                         }`
                                     }
                                 </li>

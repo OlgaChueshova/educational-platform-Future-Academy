@@ -1,9 +1,38 @@
-.footer-navigation__contacts--copyright {
+.footer-section__link a {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+.footer-section__link a:hover,
+.footer-section__sub-list--link a:hover {
+    color: var(--gray-2);
+}
+
+.footer-section__list--link a {
     font-family: 'Montserrat';
     font-weight: 400;
-    font-size: 12px;
-    line-height: 15px;
-    color: var(--gray-4);
-    margin-left: 5px;
+    font-size: 14px;
+    line-height: 34px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.footer-contacts__logo {
+    display: block;
+    width: 83px;
+    height: 59px;
+    margin-bottom: 43px;
+    margin-right: 86px;
+    margin-top: 71px;
+}
+
+.footer-contacts__logo img:hover {
+    transform: scale(105%);
+    transition: 1s;
 }
 

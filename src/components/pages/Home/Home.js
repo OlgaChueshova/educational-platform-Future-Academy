@@ -148,6 +148,22 @@ export class HomePage extends core.Component {
     render() {
         return `
         <main>
+        <section class="header-bottom">
+        <div class="header-bottom__title">
+            <hgroup class="header-bottom__title--group">
+                <h1 class="header-bottom__title--first">Образовательная платформа<br><span>ХОД Future Academy</span>
+                </h1>
+                <h4 class="header-bottom__title--second">Актуальные знания для новичков и профессионалов</h4>
+            </hgroup>
+        </div>
+        <img class="header-bottom__img--cross" src="../../../assets/images/icons/graphic-arts/cross.svg" alt="cross">
+        <img class="header-bottom__img--cross--little" src="../../../assets/images/icons/graphic-arts/cross.svg" alt="cross">
+        <img class="header-bottom__img--circle" src="../../../assets/images/icons/graphic-arts/circle.svg" alt="circle">
+        <img class="header-bottom__img--triangle" src="../../../assets/images/icons/graphic-arts/triangle.svg" alt="triangle">
+        <img class="header-bottom__img--line1" src="../../../assets/images/icons/graphic-arts/Vector 1.svg" alt="line">
+        <img class="header-bottom__img--line2" src="../../../assets/images/icons/graphic-arts/Vector-5.svg" alt="line">
+        <img class="header-bottom__img--line4" src="../../../assets/images/icons/graphic-arts/Vector 4.svg" alt="line">
+        </section>
         <section class="directions">
             <it-owl class="directions__image owl" 
                 title="Кем вы хотите стать?" 

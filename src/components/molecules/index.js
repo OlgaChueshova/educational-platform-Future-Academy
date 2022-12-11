@@ -8,3 +8,6 @@ export * from './Form';
 export * from './Owl';
 export * from './Catalog';
 export * from './VideoSection';
+export * from './InfoList';
+export * from './GridMenu';
+export * from './Gradient';

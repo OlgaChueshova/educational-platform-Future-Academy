@@ -1,0 +1,128 @@
+.slider-reviews {
+    display: block;
+    position: relative;
+    width: 100vw;
+    height: 600px;
+    background-image: url('../../../assets/images/swiper/slider-bg.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.slider-review__title {
+    position: absolute;
+    z-index: 2;
+    top: 62px;
+    left: 709px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    color: #FFFFFF;
+}
+
+.swiper-reviews {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-reviews__wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-reviews__slide {
+    display: block;
+    width: 280px;
+    height: min-content !important;
+    max-height: 360px;
+    margin-top: 150px;
+    position: relative;
+}
+
+.swiper-reviews__scrollbar {
+    width: 1180px !important;
+    margin-left: 370px;
+    margin-bottom: 32px;
+    background-color: #FFFFFF !important;
+}
+
+.swiper-reviews__scrollbar>.swiper-scrollbar-drag {
+    background-image: url('../../../assets/images/swiper/scrollbar.svg') !important;
+}
+
+.swiper-reviews__slide-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+}
+
+.swiper-reviews__slide-wrapper:hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    transform: scale(130%);
+    transition: 2s;
+    box-shadow: 5px 5px 20px 10px rgba(29, 67, 58, 0.8);
+    cursor: pointer;
+}
+
+.swiper-review__slide--personal-data {
+    margin-bottom: 9px;
+}
+
+.swiper-review__slide--personal-data>img {
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.swiper-review__slide--personal-data>p {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: var(--gray-2);
+}
+
+.swiper-review__slide--personal-data>p>span {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: black;
+    margin-bottom: 8px;
+}
+
+.swiper-review__slide--text {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    color: black;
+    max-height: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* не работает!!!! */
+    margin-bottom: 19px;
+}
+
+.swiper-reviews__slide--like {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--gray-2);
+}
+
+.swiper-reviews__slide--like>img {
+    vertical-align: middle;
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
+}

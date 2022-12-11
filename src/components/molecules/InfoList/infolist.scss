@@ -1,0 +1,114 @@
+.information {
+    margin: 0 370px 82px 370px;
+}
+
+.information__title {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 34px;
+}
+
+.information__text {
+    display: block;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 12px;
+}
+
+.information__list {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 42px;
+}
+
+.information__list--item {
+    margin-right: 100px;
+}
+
+.information__list--link {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    color: black;
+}
+
+.information__list--link:hover {
+    color: var(--gray-1);
+}
+
+.svg-course {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 86px;
+    line-height: 105px;
+    fill: url(#LG1);
+}
+
+
+.advantage {
+    max-width: 1180px;
+    height: min-content;
+    margin: 85px 370px 0 370px;
+    padding-bottom: 370px;
+}
+
+.advantage .information__title {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 34px;
+    margin-bottom: 61px;
+}
+
+.advantage div .information__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.advantage div .information__list--item {
+    max-width: 280px;
+}
+
+.advantage div .information__list--link {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.advantage div .information__list--link>img {
+    margin-bottom: 20px;
+}
+
+
+/* about us */
+
+.about-us>.advantage {
+    margin-bottom: 103px;
+}
+
+.about-us .advantage__list--item:nth-of-type(4)>.advantage__list--item-img {
+    width: 40px;
+    height: 56px;
+    margin-bottom: 30px;
+}
+
+.about-us .advantage__list--item:nth-of-type(5)>.advantage__list--item-img {
+    width: 52px;
+    height: 46px;
+    margin-bottom: 30px;
+}
+
+.about-us .advantage .advantage__list--item {
+    max-width: 220px;
+}
+
+.about-us .advantage .advantage__list {
+    align-items: flex-start; 
+}

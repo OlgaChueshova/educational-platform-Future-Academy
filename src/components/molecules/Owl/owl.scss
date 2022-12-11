@@ -5,16 +5,16 @@
     margin-right: 50px;
 }
 
-.form__image--img {
+.form__image div>img {
     display: block;
     position: absolute;
     width: 312px;
     height: 276px;
-    top: 24px;
-    left: -100px;
+    top: 15px;
+    left: -300px;
 }
 
-.form__image--text {
+.form__image div {
     display: block;
     width: 418px;
     height: 190px;
@@ -27,21 +27,22 @@
     padding: 22px 16px 16px 52px;
 }
 
-.form__image--text>p:nth-of-type(1) {
+.form__image div>p:nth-of-type(1) {
     display: block;
     font-family: 'Montserrat';
     font-weight: 600;
     font-size: 24px;
     line-height: 29px;
-    margin-bottom: 20px;
 }
 
-.form__image--text>p:nth-of-type(2) {
+.form__image div>p:nth-of-type(2) {
     font-family: 'Montserrat';
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
 }
+
+
 
 .owl {
     position: relative;
@@ -50,15 +51,15 @@
     margin-right: 40px;
 }
 
-.owl__img {
+.owl img {
     display: block;
     position: absolute;
-    bottom: 0;
+    bottom: -130px;
     left: -40px;
     z-index: 2;
 }
 
-.owl__text {
+.owl div {
     display: block;
     position: absolute;
     min-height: 220px;
@@ -66,7 +67,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-    padding: 30px 20px;
+    padding: 25px 20px;
     font-family: 'Montserrat';
     font-weight: 500;
     font-size: 16px;
@@ -78,7 +79,7 @@
     background-repeat: no-repeat;
 }
 
-.owl__text>p:first-child {
+.owl div>p:first-child {
     font-weight: 600;
 }
 

@@ -3,14 +3,20 @@ import './owl.scss'
 
 export class Owl extends Component {
 
+    static get observedAttributes() {
+        return ['title', 'text', 'lastword']
+    }
+
     render() {
+        const { title, text, lastword } = this.props;
+        console.log(this.props)
         return `
             <div>
-                <img src="../../../assets/images/owl/owl.svg" alt="owl" class="form__image--img">
-                <div class="form__image--text">
-                    <p>Помочь с выбором?</p>
-                    <p>Оставьте заявку и наши специалисты свяжутся с вами, ответят на все вопросы и подберут подходящий
-                        вариант обучения.</p>
+                <img src="../../../assets/images/owl/owl.svg" alt="owl">
+                <div>
+                    <p>${title}</p><br>
+                    <p>${text}</p><br>
+                    ${lastword ? `<p>${lastword}</p><br>` : ''}
                 </div>
             </div>
         `

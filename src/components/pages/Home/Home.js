@@ -1,128 +1,162 @@
 import * as core from "../../../core";
 import { Form } from "../../molecules";
 import { Owl } from "../../molecules/Owl";
+import { Catalog } from "../../molecules";
 import './home.scss'
 
 export class HomePage extends core.Component {
+    constructor() {
+        super();
+        this.courses = [
+            {
+                title: "Дети",
+                label: "Children",
+                description: '8 &mdash; 14 лет',
+                path: '//',
+                icon: '../../../assets/images/icons/children.svg',
+                coursesList: [
+                   {
+                    title: "Робототехника",
+                    path: "*"
+                   },
+                   {
+                    title: "Создание игр",
+                    path: "*"
+                   },
+                   {
+                    title: "WEB-разработка",
+                    path: "*"
+                   },
+                   {
+                    title: "Мультимедиа",
+                    path: "*"
+                   },
+                   {
+                    title: "Шахматы",
+                    path: "*"
+                   },
+                   {
+                    title: "3D-моделирование и дизайн",
+                    path: "*"
+                   },
+                   {
+                    title: "Английский язык",
+                    path: "*"
+                   },
+                   {
+                    title: "Блогинг",
+                    path: "*"
+                   },
+                   {
+                    title: "Soft skills",
+                    path: "*"
+                   },
+                ]
+            },
+            {
+                title: "Подростки",
+                label: "Children",
+                path: '//',
+                description: '14 &mdash; 18 лет',
+                icon: '../../../assets/images/icons/children1.svg',
+                coursesList: [
+                   {
+                    title: "Робототехника",
+                    path: "*"
+                   },
+                   {
+                    title: "Дизайн",
+                    path: "*"
+                   },
+                   {
+                    title: "3D-моделирование",
+                    path: "*"
+                   },
+                   {
+                    title: "Техномейкерство",
+                    path: "*"
+                   },
+                   {
+                    title: "Программирование и Game Dev",
+                    path: "*"
+                   },
+                   {
+                    title: "WEB-технологии",
+                    path: "*"
+                   },
+                   {
+                    title: "Computer science",
+                    path: "*"
+                   },
+                   {
+                    title: "Блогинг",
+                    path: "*"
+                   },
+                   {
+                    title: "Soft skills",
+                    path: "*"
+                   },
+                ]
+            },
+            {
+                title: "Взрослые",
+                label: 'peaple',
+                path: '//',
+                description: '18 &mdash;75 лет',
+                icon: '../../../assets/images/icons/family.svg',
+                coursesList: [
+                   {
+                    title: "Тестирование ПО",
+                    path: "*"
+                   },
+                   {
+                    title: "Разработка на Node.js",
+                    path: "*"
+                   },
+                   {
+                    title: "Разработка WEB-приложений на Python",
+                    path: "*"
+                   },
+                   {
+                    title: "Разработка WEB-приложений на PHP",
+                    path: "*"
+                   },
+                   {
+                    title: "Курсы создания сайтов и Front-End разработки",
+                    path: "*"
+                   },
+                   {
+                    title: "Разработка игр на Unity",
+                    path: "*"
+                   },
+                   {
+                    title: "Английский язык для IT",
+                    path: "*"
+                   },
+                   {
+                    title: "Бизнес-анализ",
+                    path: "*"
+                   },
+                   {
+                    title: "WEB-дизайн и компьютерная графика",
+                    path: "*"
+                   },
+                ]
+            },
+        ]
+    }
     render() {
         return `
         <main>
         <section class="directions">
-            <div class="directions__image owl">
-                <img src="../../../assets/images/owl/owl.svg" alt="owl" class="owl__img">
-                <div class="owl__text">
-                    <p>Кем вы хотите стать?</p><br>
-                    <p>Пора найти себя и выбрать подходящий курс:)</p><br>
-                    <p>Удачи!</p>
-                </div>
-            </div>
-            <nav class="directions__navigation course-catalog">
-                <ul class="course-catalog__list">
-                    <li
-                        class="course-catalog__list--item course-catalog__list--item-active course-catalog__list--children">
-                        <a class="course-catalog__list--link">
-                            Дети<br>
-                            <span>8 &mdash; 14 лет</span>
-                        </a>
-                        <ul class="course-catalog__subMenu course-catalog__subMenu--children">
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">Робототехника</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">Создание игр</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">WEB-разработка</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">Мультимедиа</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">Шахматы</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">3D-моделирование и дизайн</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">Английский язык</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">Блогинг</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">Soft skills</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="course-catalog__list--item course-catalog__list--children1">
-                        <a class="course-catalog__list--link">
-                            Дети<br>
-                            <span>14 &mdash; 18 лет</span>
-                        </a>
-                        <ul class="course-catalog__subMenu course-catalog__subMenu--children1">
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">Робототехника</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">Дизайн</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">3D-моделирование</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">Техномейкерство</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">Программирование и Game Dev</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">WEB-технологии</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">Computer science</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="course-catalog__list--item course-catalog__list--family">
-                        <a class="course-catalog__list--link">
-                            Взрослые<br>
-                            <span>18 &mdash;75 лет</span>
-                        </a>
-                        <ul class="course-catalog__subMenu course-catalog__subMenu--family">
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">Тестирование ПО</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">Разработка на Node.js</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">Разработка WEB-приложений на
-                                    Python</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">Разработка WEB-приложений на PHP</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">Курсы создания сайтов и Front-End
-                                    разработки</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">Разработка игр на Unity</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">Английский язык для IT</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">Бизнес-анализ</a>
-                            </li>
-                            <li class="course-catalog__subMenu--item">
-                                <a href="//" class="course-catalog__subMenu--link">WEB-дизайн и компьютерная графика</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
+            <it-owl class="directions__image owl" 
+                title="Кем вы хотите стать?" 
+                text="Пора найти себя и выбрать подходящий курс:)" 
+                lastword= "Удачи!">
+            </it-owl>
+        <it-catalog courses='${JSON.stringify(this.courses)}'></it-catalog>
         </section>
+
         <section class="video">
             <button type="button" class="video__btn"></button>
             <div class="video__background">
@@ -406,7 +440,11 @@ export class HomePage extends core.Component {
             </ul>
         </section>
         <section class="form">
-            <it-owl class='form__image'></it-owl>
+            <it-owl class='form__image' 
+                title='Помочь с выбором?' 
+                text='Оставьте заявку и наши специалисты свяжутся с вами,
+                ответят на все вопросы и подберут подходящий вариант обучения.'>
+            </it-owl>
             <it-form></it-form>
         </section>
         <svg width="385" height="105" xmlns="http://www.w3.org/2000/svg">

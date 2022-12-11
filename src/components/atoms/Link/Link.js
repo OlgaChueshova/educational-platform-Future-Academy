@@ -59,6 +59,10 @@ export class Link extends Component {
                     alt="${this.props.label}">`
                 : ''}
                 <span>${this.props.title ? `${this.props.title}` : ''}</span>
+                ${this.props.description
+                    ? `<p>${this.props.description}</p>`
+                    : ''
+                }
             </a>
             `
     }

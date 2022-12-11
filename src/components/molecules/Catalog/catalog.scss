@@ -1,0 +1,107 @@
+.directions {
+    display: flex;
+    margin: 100px 370px 0 370px;
+}
+
+.course-catalog__list {
+    display: flex;
+    width: 880px;
+    justify-content: space-between;
+    position: relative;
+    border-bottom: 1px solid var(--gray-5);
+    padding-right: 98px;
+}
+
+.course-catalog__list--item {
+    min-width: 160px;
+    padding: 14px;
+}
+
+.course-catalog__list--item-active {
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(to right, #F7941D, #27AAE1);
+    border-image-slice: 1;
+}
+
+.course-catalog__list--item-active .course-catalog__subMenu {
+    display: flex;
+}
+
+.course-catalog__subMenu {
+    display: none;
+}
+
+.course-catalog__list--link {
+    display: block;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: black;
+}
+
+.course-catalog__list--link>a>span {
+    padding-left: 10px;
+}
+
+.course-catalog__list--link>a>img {
+    display: inline-block;
+   transform: translateY(10px);
+}
+
+.course-catalog__list--link>a>p {
+    display: inline-block;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 5px;
+    color: var(--gray-2);
+    margin-left: 65px;
+    transform: translateY(-15px);
+}
+
+.course-catalog__subMenu {
+    flex-wrap: wrap;
+    position: absolute;
+    width: 880px;
+    height: min-content;
+    left: 0px;
+    top: 56px;
+}
+
+.course-catalog__subMenu--item {
+    display: block;
+    padding: 16px 20px 18px 20px;
+    margin: 20px 20px 0 0;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    box-shadow: 0 0 6px blue;
+}
+
+.course-catalog__subMenu--link>a {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: black;
+}
+
+.course-catalog__subMenu--item:hover {
+    box-shadow: 3px 4px 10px 5px blue;
+    transform: scale(105%);
+    transition: 1s;
+}
+
+.course-catalog__subMenu--title {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -23px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.studying-programs__navigation .course-catalog__list--item>.course-catalog__subMenu {
+    top: 130px !important;
+}

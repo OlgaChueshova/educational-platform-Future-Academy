@@ -1,0 +1,57 @@
+.studying-programs__site-bar {
+    min-width: 280px;
+    margin-right: 20px;
+}
+
+.studying-programs__site-bar--filter {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.sort-form__difficulty-level,
+.sort-form__type-of-training,
+.sort-form__duration {
+padding-top: 25px;
+padding-bottom: 4px;
+font-family: 'Montserrat';
+font-weight: 400;
+font-size: 14px;
+line-height: 14px;
+color: var(--gray-1);
+}
+
+.sort-form__type-of-training,
+.sort-form__duration {
+border-top: 1px solid var(--gray-5);
+}
+
+.sort-form__type-of-training--label,
+.sort-form__duration--label,
+.sort-form__difficulty-level--label {
+font-family: 'Montserrat';
+font-weight: 500;
+font-size: 16px;
+line-height: 20px;
+display: block;
+margin-bottom: 21px;
+}
+
+.sort-form__type-of-training--input,
+.sort-form__difficulty-level--input {
+margin-bottom: 23px;
+margin-right: 10px;
+vertical-align: text-top;
+width: 20px;
+height: 20px;
+border: 1px solid var(--gray-1);
+}
+
+.sort-form__duration--input {
+margin-bottom: 80px;
+width: 260px;
+}
+
+.sort-form__duration>input {
+background-image: linear-gradient('#LG1');
+}

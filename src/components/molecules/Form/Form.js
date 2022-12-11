@@ -24,21 +24,20 @@ export class Form extends Component {
             },
         ];
         this.state = {
-            inputValue: ''
+            inputValue: '',
         }
     }
 
     render() {
-        console.log(this.fields)
         return `
             <form action="//" method="post" class="form__blank">
                 <div class="form__blank--container">
                     ${this.fields.map((item) => {
                         return `<it-input 
-                                value='${this.state.inputValue}' 
-                                props='${JSON.stringify(item)}' 
-                                class='${item.classname}'>
-                            </it-input>`
+                                        value='${this.state.inputValue}' 
+                                        props='${JSON.stringify(item)}' 
+                                        class='${item.classname}'>
+                                </it-input>`
                     }).join(' ')}
                     <p class="form__blank--text">Нажимая на кнопку, я соглашаюсь на обработку персональных данных и с
                         правилами пользования Платформой

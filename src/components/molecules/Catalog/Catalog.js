@@ -12,7 +12,7 @@ export class Catalog extends Component {
     }
 
     static get observedAttributes() {
-        return ['courses']
+        return ['courses', 'clasname', 'title']
     }
 
     onClick(evt) {
@@ -47,19 +47,22 @@ export class Catalog extends Component {
 
     render() {
         return `
-            <nav class="directions__navigation course-catalog">
+            <nav class="${this.props.clasname} course-catalog">
                 <ul class="course-catalog__list">
                     ${this.props.map((item) => {
-            return `
+                        return `
                             <li class="course-catalog__list--item">
-                                <it-link link='${JSON.stringify(item)}' class="course-catalog__list--link"></it-link>
+                                <it-link link='${JSON.stringify(item)}' 
+                                    class="course-catalog__list--link">
+                                </it-link>
                                 <it-catalog-list 
                                     courseslist='${JSON.stringify(item.coursesList)}' 
-                                    class="course-catalog__subMenu">
+                                    class="course-catalog__subMenu"
+                                    title='${this.props.title ? this.props.title : ''}'>
                                 </it-catalog-list>
                             </li>
                         `
-        }).join(' ')}
+                    }).join(' ')}
                 </ul>
             </nav> 
         `

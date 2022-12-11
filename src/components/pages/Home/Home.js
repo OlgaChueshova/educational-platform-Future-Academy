@@ -326,7 +326,10 @@ export class HomePage extends core.Component {
                     text="Пора найти себя и выбрать подходящий курс:)" 
                     lastword= "Удачи!">
                 </it-owl>
-                <it-catalog courses='${JSON.stringify(this.courses)}'></it-catalog>
+                <it-catalog 
+                    courses='${JSON.stringify(this.courses)}' 
+                    clasname="directions__navigation">
+                </it-catalog>
             </section>
 
             <section>

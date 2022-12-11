@@ -13,12 +13,12 @@ export class CatalogList extends Component {
     }
 
     static get observedAttributes() {
-        return ['courseslist']
+        return ['courseslist', 'title']
     }
 
     render() {
-        console.log(this.props)
         return `
+            <h5>${this.props.title ? `${this.props.title}` : ''}</h5>
             <ul class="course-catalog__subMenu">
                 ${this.props.map((item) => {
                     return `

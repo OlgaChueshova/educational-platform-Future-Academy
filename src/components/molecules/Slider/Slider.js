@@ -1,4 +1,7 @@
 import { Component } from '../../../core';
+import Swiper, { Scrollbar } from 'swiper';
+import 'swiper/css/scrollbar';
+import 'swiper/css';
 import './slider.scss';
 
 export class Slider extends Component {
@@ -18,17 +21,18 @@ export class Slider extends Component {
             slidesPerView: 6,
             spaceBetween: 20,
             loop: true,
-          
+
+            modules: [Scrollbar],
             scrollbar: {
-              el: '.swiper-scrollbar',
-              draggable: true,
+                el: '.swiper-scrollbar',
+                draggable: true,
             },
-          });
+        });
     }
 
     render() {
         return `
-            <div>
+            <div class="slider-reviews">
                 <h3 class="slider-review__title">Отзывы наших студентов</h3>
                 <div class="swiper swiper-reviews">
                     <div class="swiper-wrapper swiper-reviews__wrapper">
@@ -48,7 +52,7 @@ export class Slider extends Component {
                                     </div>
                                 </div>
                             `
-                        })}
+                            }).join(' ')}
                         ...
                     </div>
                     <div class="swiper-scrollbar swiper-reviews__scrollbar"></div>

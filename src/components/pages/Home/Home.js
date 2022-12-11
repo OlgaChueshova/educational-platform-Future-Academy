@@ -246,7 +246,7 @@ export class HomePage extends core.Component {
                 label: "foto",
                 personalName: "Имя Фамилия",
                 courseName: "Студент курса WEB-<br>разработчик",
-                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, rem quos ipsum nostrum sequi nulla obcaecati a delectus cupiditate maxime est deleniti quis doloremque culpa, consequuntur dolorum quisquam itaque quaerat reiciendis molestiae laborum placeat ratione. Necessitatibus nostrum sint rem debitis, repellat praesentium assumenda eligendi. Exercitationem rerum ipsum consequuntur quos officia?",
+                text: "Lorem ipsum , rem quos ipsum nostrum sequi nulla obcaecati est deleniti quis doloremque culpa, consequuntur dolorum quisquam itaque quaerat reiciendis molestiae laborum placeat ratione. Necessitatibus nostrum sint rem debitis, repellat praesentium assumenda eligendi. Exercitationem rerum ipsum consequuntur quos officia?",
                 rating: "4,87/5"
             },
             {
@@ -254,7 +254,7 @@ export class HomePage extends core.Component {
                 label: "foto",
                 personalName: "Имя Фамилия",
                 courseName: "Студент курса WEB-<br>разработчик",
-                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, rem quos ipsum nostrum sequi nulla obcaecati a delectus cupiditate maxime est deleniti quis doloremque culpa, consequuntur dolorum quisquam itaque quaerat reiciendis molestiae laborum placeat ratione. Necessitatibus nostrum sint rem debitis, repellat praesentium assumenda eligendi. Exercitationem rerum ipsum consequuntur quos officia?",
+                text: "Lorem ipsum dolor sit amet consectetur, consequuntur dolorum quisquam itaque quaerat reiciendis molestiae laborum placeat ratione. Necessitatibus nostrum sint rem debitis, repellat praesentium assumenda eligendi. Exercitationem rerum ipsum consequuntur quos officia?",
                 rating: "4,87/5"
             },
             {
@@ -262,7 +262,7 @@ export class HomePage extends core.Component {
                 label: "foto",
                 personalName: "Имя Фамилия",
                 courseName: "Студент курса WEB-<br>разработчик",
-                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, rem quos ipsum nostrum sequi nulla obcaecati a delectus cupiditate maxime est deleniti quis doloremque culpa, consequuntur dolorum quisquam itaque quaerat reiciendis molestiae laborum placeat ratione. Necessitatibus nostrum sint rem debitis, repellat praesentium assumenda eligendi. Exercitationem rerum ipsum consequuntur quos officia?",
+                text: "Lorem ipsum dolor sit obcaecati a delectus cupiditate maxime est deleniti quis doloremque culpa, consequuntur dolorum quisquam itaque quaerat reiciendis molestiae laborum placeat ratione. Necessitatibus nostrum sint rem debitis, repellat praesentium assumenda eligendi. Exercitationem rerum ipsum consequuntur quos officia?",
                 rating: "4,87/5"
             },
             {
@@ -270,7 +270,7 @@ export class HomePage extends core.Component {
                 label: "foto",
                 personalName: "Имя Фамилия",
                 courseName: "Студент курса WEB-<br>разработчик",
-                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, rem quos ipsum nostrum sequi nulla obcaecati a delectus cupiditate maxime est deleniti quis doloremque culpa, consequuntur dolorum quisquam itaque quaerat reiciendis molestiae laborum placeat ratione. Necessitatibus nostrum sint rem debitis, repellat praesentium assumenda eligendi. Exercitationem rerum ipsum consequuntur quos officia?",
+                text: "Lorem ipsum dolor sit amet consectetur delectus cupiditate maxime est deleniti quis doloremque culpa, consequuntur dolorum quisquam itaque quaerat reiciendis molestiae laborum placeat ratione. Necessitatibus nostrum sint rem debitis, repellat praesentium assumenda eligendi. Exercitationem rerum ipsum consequuntur quos officia?",
                 rating: "4,87/5"
             },
             {
@@ -347,7 +347,7 @@ export class HomePage extends core.Component {
                 <grid-menu windows='${JSON.stringify(this.windows)}'></grid-menu>
             </section>
 
-            <section class="slider-reviews">
+            <section>
                 <it-slider reviews='${JSON.stringify(this.reviews)}'></it-slider>
             </section>
 

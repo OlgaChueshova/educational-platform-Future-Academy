@@ -90,8 +90,8 @@ export class Header extends core.Component {
             },
         ];
         this.logo = {
-            src1: "../../../../assets/images/logo/logo-dark.svg",
-            src2: "../../../../assets/images/logo/logo-dark.svg",
+            src1: "../../../assets/images/logo/logo-dark.svg",
+            src2: "../../../assets/images/logo/logo-dark.svg",
         };
 
     }

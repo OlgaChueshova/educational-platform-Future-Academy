@@ -2,6 +2,7 @@ import * as core from "../../../core";
 import { Form } from "../../molecules";
 import { Owl } from "../../molecules/Owl";
 import { Catalog } from "../../molecules";
+import { VideoSection } from "../../molecules";
 import './home.scss'
 
 export class HomePage extends core.Component {
@@ -148,41 +149,43 @@ export class HomePage extends core.Component {
     render() {
         return `
         <main>
-        <section class="header-bottom">
-        <div class="header-bottom__title">
-            <hgroup class="header-bottom__title--group">
-                <h1 class="header-bottom__title--first">Образовательная платформа<br><span>ХОД Future Academy</span>
-                </h1>
-                <h4 class="header-bottom__title--second">Актуальные знания для новичков и профессионалов</h4>
-            </hgroup>
-        </div>
-        <img class="header-bottom__img--cross" src="../../../assets/images/icons/graphic-arts/cross.svg" alt="cross">
-        <img class="header-bottom__img--cross--little" src="../../../assets/images/icons/graphic-arts/cross.svg" alt="cross">
-        <img class="header-bottom__img--circle" src="../../../assets/images/icons/graphic-arts/circle.svg" alt="circle">
-        <img class="header-bottom__img--triangle" src="../../../assets/images/icons/graphic-arts/triangle.svg" alt="triangle">
-        <img class="header-bottom__img--line1" src="../../../assets/images/icons/graphic-arts/Vector 1.svg" alt="line">
-        <img class="header-bottom__img--line2" src="../../../assets/images/icons/graphic-arts/Vector-5.svg" alt="line">
-        <img class="header-bottom__img--line4" src="../../../assets/images/icons/graphic-arts/Vector 4.svg" alt="line">
-        </section>
-        <section class="directions">
-            <it-owl class="directions__image owl" 
-                title="Кем вы хотите стать?" 
-                text="Пора найти себя и выбрать подходящий курс:)" 
-                lastword= "Удачи!">
-            </it-owl>
-        <it-catalog courses='${JSON.stringify(this.courses)}'></it-catalog>
-        </section>
 
-        <section class="video">
-            <button type="button" class="video__btn"></button>
-            <div class="video__background">
-                <video src="./video/info-video.mp4" poster="./images/foto/info-video.jpg" class="video__clip"></video>
-            </div>
-            <img src="./images/icons/graphic-arts/video-triangle.svg" alt="triangle" class="video__triangle">
-            <img src="./images/icons/graphic-arts/video-cross.svg" alt="cross" class="video__cross">
-            <img src="./images/icons/graphic-arts/video-vector1.svg" alt="vector" class="video__vector--big">
-            <img src="./images/icons/graphic-arts/video-vector2.svg" alt="vector" class="video__vector--little">
-        </section>
+            <section class="header-bottom">
+                <div class="header-bottom__title">
+                    <hgroup class="header-bottom__title--group">
+                        <h1 class="header-bottom__title--first">Образовательная платформа<br><span>ХОД Future Academy</span>
+                        </h1>
+                        <h4 class="header-bottom__title--second">Актуальные знания для новичков и профессионалов</h4>
+                    </hgroup>
+                </div>
+                <img class="header-bottom__img--cross" src="../../../assets/images/icons/graphic-arts/cross.svg" alt="cross">
+                <img class="header-bottom__img--cross--little" src="../../../assets/images/icons/graphic-arts/cross.svg" alt="cross">
+                <img class="header-bottom__img--circle" src="../../../assets/images/icons/graphic-arts/circle.svg" alt="circle">
+                <img class="header-bottom__img--triangle" src="../../../assets/images/icons/graphic-arts/triangle.svg" alt="triangle">
+                <img class="header-bottom__img--line1" src="../../../assets/images/icons/graphic-arts/Vector 1.svg" alt="line">
+                <img class="header-bottom__img--line2" src="../../../assets/images/icons/graphic-arts/Vector-5.svg" alt="line">
+                <img class="header-bottom__img--line4" src="../../../assets/images/icons/graphic-arts/Vector 4.svg" alt="line">
+            </section>
+
+            <section class="directions">
+                <it-owl class="directions__image owl" 
+                    title="Кем вы хотите стать?" 
+                    text="Пора найти себя и выбрать подходящий курс:)" 
+                    lastword= "Удачи!">
+                </it-owl>
+                <it-catalog courses='${JSON.stringify(this.courses)}'></it-catalog>
+            </section>
+
+            <section>
+                <video-section
+                    path="../../../assets/video/info-video.mp4"
+                    poster="../../../assets/images/foto/info-video.jpg"
+                    classname="video__clip"
+                    iscontrols="true"
+                >
+                </video-section>
+            </section>
+
         <section class="information">
             <h4 class="information__title">Актуальные знания от признанных экспертов рынка <br> для новичков и
                 практикующих специалистов.</h4>

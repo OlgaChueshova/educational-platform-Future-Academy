@@ -17,3 +17,26 @@
     background-color: #FFAE4D;
 }
 
+.video__btn {
+    width: 98px;
+    height: 98px;
+    border-radius: 50%;
+    position: absolute;
+    top: 250px;
+    left: 950px;
+    z-index: 5;
+    border: none !important;
+    outline: 0 !important;
+    padding: 0 !important;
+}
+
+.video__btn:hover {
+    transform: scale(110%);
+    transition: 0.5s;
+}
+
+.video__btn--notactive {
+    display: none;
+}
+
+

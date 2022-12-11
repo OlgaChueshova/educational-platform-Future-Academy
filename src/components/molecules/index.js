@@ -7,3 +7,4 @@ export * from './NetList';
 export * from './Form';
 export * from './Owl';
 export * from './Catalog';
+export * from './VideoSection';

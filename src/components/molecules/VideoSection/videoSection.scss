@@ -1,0 +1,40 @@
+.video__triangle {
+    width: 165px;
+    height: 137px;
+    position: absolute;
+    z-index: 1;
+    top: -68px;
+    left: 110px;
+}
+
+.video__cross {
+    width: 230px;
+    height: 230px;
+    position: absolute;
+    z-index: 1;
+    right: 50px;
+    bottom: -161px;
+}
+
+.chess-video .video__cross {
+    right: 50;
+    bottom: -81px;
+}
+
+.video__vector--big {
+    position: absolute;
+    top: -58px;
+    right: -50px;
+    width: 350px;
+    height: 350px;
+    z-index: 1;
+}
+
+.video__vector--little {
+    position: absolute;
+    left: -60px;
+    bottom: 24px;
+    width: 280px;
+    height: 130px;
+    z-index: 1;
+}

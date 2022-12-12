@@ -4,20 +4,20 @@ import './input.scss';
 export class Input extends Component {
     constructor() {
         super();
-        this.props = JSON.parse(this.getAttribute('props'));
     } 
 
     static get observedAttributes() {
-        return ['props', 'value']
+        return ['value', 'type', 'placeholder']
     }
 
     render() {
         return `
             <input 
-                type="${this.props.type}" 
-                placeholder="${this.props.text}" 
+                type="${this.props.type}"
+                ${this.props.placeholder ? `placeholder="${this.props.placeholder}"` : ''}  
                 value='${this.props.value}'
-                >
+            >
+            <span>${this.props.value}</span>
         `
     }
 }

@@ -18,7 +18,10 @@ export class NetList extends Component {
                 ${this.props.map((item) => {
             return `
                         <li class="footer-networks__item">
-                            <it-link link='${JSON.stringify(item)}' class="footer-networks__link"></it-link>                                   
+                            <it-link 
+                                link='${JSON.stringify(item)}' 
+                                class="footer-networks__link">
+                            </it-link>                                   
                         </li>
                     `
         }).join(' ')}

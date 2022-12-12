@@ -10,17 +10,17 @@ export class Form extends Component {
             {
                 type: 'text',
                 text: 'Ваше имя',
-                classname: 'form__blank--name',
+                clasname: 'form__blank--name',
             },
             {
                 type: 'tel',
                 text: 'Ваш телефон',
-                classname: 'form__blank--tel',
+                clasname: 'form__blank--tel',
             },
             {
                 type: 'email',
                 text: 'Ваш e-mail',
-                classname: 'form__blank--email',
+                clasname: 'form__blank--email',
             },
         ];
         this.state = {
@@ -34,9 +34,10 @@ export class Form extends Component {
                 <div class="form__blank--container">
                     ${this.fields.map((item) => {
                         return `<it-input 
-                                        value='${this.state.inputValue}' 
-                                        props='${JSON.stringify(item)}' 
-                                        class='${item.classname}'>
+                                        value='${this.state.inputValue}'
+                                        type='${item.type}'
+                                        placeholder='${item.text}' 
+                                        class='${item.clasname}'>
                                 </it-input>`
                     }).join(' ')}
                     <p class="form__blank--text">Нажимая на кнопку, я соглашаюсь на обработку персональных данных и с

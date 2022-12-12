@@ -9,7 +9,7 @@
     justify-content: space-between;
     position: relative;
     border-bottom: 1px solid var(--gray-5);
-    padding-right: 98px;
+    margin-right: 98px;
 }
 
 .course-catalog__list--item {
@@ -63,10 +63,13 @@
 .course-catalog__subMenu {
     flex-wrap: wrap;
     position: absolute;
+    align-items: center;
     width: 880px;
     height: min-content;
+    max-height: 100px;
     left: 0px;
     top: 56px;
+    z-index: 10;
 }
 
 .course-catalog__subMenu--item {
@@ -84,6 +87,7 @@
     font-size: 14px;
     line-height: 17px;
     color: black;
+    text-align: center;
 }
 
 .course-catalog__subMenu--item:hover {
@@ -96,7 +100,7 @@
     display: block;
     position: absolute;
     left: 0;
-    top: 10px;
+    top: 0;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;

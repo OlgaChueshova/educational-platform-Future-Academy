@@ -18,7 +18,10 @@ export class Filter extends Component {
                 <fieldset class="studying-programs__site-bar--filter sort-form">
                     ${this.props.map((item) => {
                         return `
-                            <input-form field='${JSON.stringify(item)}'></input-form>
+                            <input-form 
+                                field='${JSON.stringify(item)}' 
+                                class="sort-form__item">
+                            </input-form>
                         `
                     }).join(' ')}
                 </fieldset>

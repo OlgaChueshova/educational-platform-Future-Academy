@@ -12,6 +12,7 @@ export class Header extends core.Component {
                 label: 'Hamburger',
                 path: '/courses',
                 icon: '../../../assets/images/icons/hamburger.svg',
+                icon2: '../../../assets/images/icons/hmb-white.svg',
                 component: 'courses-page'
             },
             {
@@ -34,6 +35,7 @@ export class Header extends core.Component {
                 label: 'Location',
                 path: '',
                 icon: '../../../assets/images/icons/location.svg',
+                icon2: '../../../assets/images/icons/location-white.svg',
                 sublinks: [
                     {
                         title: 'Москва',
@@ -85,22 +87,43 @@ export class Header extends core.Component {
                 title: 'Войти',
                 label: 'Person',
                 icon: '../../../assets/images/icons/person.svg',
+                icon2: '../../../assets/images/icons/person-white.svg',
                 path: '/signUp',
                 component: 'sign-up-page'
             },
         ];
         this.logo = {
             src1: "../../../assets/images/logo/logo-dark.svg",
-            src2: "../../../assets/images/logo/logo-dark.svg",
+            src2: "../../../assets/images/logo/logo-white.svg",
         };
+    }
 
+    static get observedAttributes() {
+        return ['is-dark']
+    }
+
+    componentDidMount() {
+        console.log(this.props[is-dark])
+        if (this.props[is-dark]) {
+            this.links.map((item) => {
+                console.log(item.icon)
+                return item.icon = item.icon2;
+            })
+        }
     }
 
     render() {
         return `
         <header class="header header-wrapper">
-            <it-logo logo='${JSON.stringify(this.logo)}' class="header__logo"></it-logo>
-            <header-navigation links='${JSON.stringify(this.links)}' class="header__navigation"></header-navigation>
+            <it-logo logo='${this.props['is-dark']
+                ? `${JSON.stringify(this.logo.src2)}`
+                : `${JSON.stringify(this.logo.src1)}`}' 
+                class="header__logo">
+            </it-logo>
+            <header-navigation 
+                links='${JSON.stringify(this.links)}' 
+                class="header__navigation">
+            </header-navigation>
         </header>
         `
     }

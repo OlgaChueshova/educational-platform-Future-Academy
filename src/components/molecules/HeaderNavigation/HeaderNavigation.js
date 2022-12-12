@@ -6,6 +6,9 @@ import './headerNavigation.scss';
 export class HeaderNavigation extends Component {
     constructor() {
         super();
+        this.state = {
+            isDark: true,
+        }
         this.props = JSON.parse(this.getAttribute('links'));
         this.toggleSubMenu = this.toggleSubMenu.bind(this);
         this.removeSubMenu = this.removeSubMenu.bind(this);
@@ -48,7 +51,10 @@ export class HeaderNavigation extends Component {
                      return `
                         <li class="header__navigation--list-item ${item.sublinks ? "header__navigation--dropdown" : ''}">
                             ${item.component 
-                            ? `<it-route-link link='${JSON.stringify(item)}'></it-route-link>`
+                            ? `<it-route-link 
+                                    link='${JSON.stringify(item)}'
+                                    isdark='${this.props.isDark}'>
+                                </it-route-link>`
                             : `<it-link link='${JSON.stringify(item)}' class="header__navigation--link"></it-link>` 
                             }
                             ${item.sublinks 

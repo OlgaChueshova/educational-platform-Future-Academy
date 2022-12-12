@@ -12,23 +12,27 @@ export class Link extends Component {
         this.onMouseout = this.onMouseout.bind(this);
     }
 
-    onMousemove() {
-        this.setState((state) => {
-            return {
-                ...state,
-                isActive: true,
-            }
-        });
+    onMousemove(evt) {
+        if (evt.target.closest('.footer-networks__link')) {
+            this.setState((state) => {
+                return {
+                    ...state,
+                    isActive: true,
+                }
+            });
+        }
         this.render();
     }
 
-    onMouseout() {
-        this.setState((state) => {
-            return {
-                ...state,
-                isActive: false,
-            }
-        });
+    onMouseout(evt) {
+        if (evt.target.closest('.footer-networks__link')) {
+            this.setState((state) => {
+                return {
+                    ...state,
+                    isActive: false,
+                }
+            });
+        }
         this.render();
     }
 
@@ -45,24 +49,21 @@ export class Link extends Component {
     static get observedAttributes() {
         return ['link', 'clasname']
     }
- 
+
     render() {
         return `
             <a href='${this.props.path}' ${this.props.clasname ? `${this.props.clasname}` : ''}>
                 ${this.props.icon
-                ? `<img src="${this.state.isActive 
-                        ? `${this.props.icon2 
-                                ? `${this.props.icon2}`
-                                : `${this.props.icon}`
-                            }` 
-                        : `${this.props.icon}`}" 
+                ? `<img src="${this.state.isActive
+                    ? `${this.props.icon2}`
+                    : `${this.props.icon}`}" 
                     alt="${this.props.label}">`
                 : ''}
                 <span>${this.props.title ? `${this.props.title}` : ''}</span>
                 ${this.props.description
-                    ? `<p>${this.props.description}</p>`
-                    : ''
-                }
+                ? `<p>${this.props.description}</p>`
+                : ''
+            }
             </a>
             `
     }

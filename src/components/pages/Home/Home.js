@@ -6,6 +6,7 @@ import { VideoSection } from "../../molecules";
 import { InfoList } from "../../molecules";
 import { GridMenu } from "../../molecules";
 import { Gradient } from "../../molecules";
+import { Header } from "../../organizms";
 import { Slider } from "../../molecules/Slider/Slider";
 import './home.scss'
 
@@ -26,6 +27,14 @@ export class HomePage extends core.Component {
                     },
                     {
                         title: "Создание игр",
+                        path: "*"
+                    },
+                    {
+                        title: "3D-моделирование",
+                        path: "*"
+                    },
+                    {
+                        title: "Техномейкерство",
                         path: "*"
                     },
                     {
@@ -302,6 +311,7 @@ export class HomePage extends core.Component {
 
     render() {
         return `
+        <it-header></it-header>
         <main>
             <section class="header-bottom">
                 <div class="header-bottom__title">

@@ -1,23 +1,9 @@
-.sort-form__difficulty-level,
-.sort-form__type-of-training,
-.sort-form__duration {
-    padding-top: 25px;
-    padding-bottom: 4px;
-    font-family: 'Montserrat';
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 14px;
-    color: var(--gray-1);
-}
-
-.sort-form__type-of-training,
-.sort-form__duration {
+.sort-form__item:nth-of-type(2),
+.sort-form__item:nth-of-type(3) {
     border-top: 1px solid var(--gray-5);
 }
 
-.sort-form__type-of-training--label,
-.sort-form__duration--label,
-.sort-form__difficulty-level--label {
+.sort-form__item label {
     font-family: 'Montserrat';
     font-weight: 500;
     font-size: 16px;
@@ -26,8 +12,7 @@
     margin-bottom: 21px;
 }
 
-.sort-form__type-of-training--input,
-.sort-form__difficulty-level--input {
+.sort-form__item--input input {
     margin-bottom: 23px;
     margin-right: 10px;
     vertical-align: text-top;
@@ -36,11 +21,14 @@
     border: 1px solid var(--gray-1);
 }
 
-.sort-form__duration--input {
-    margin-bottom: 80px;
-    width: 260px;
+.sort-form__item--input input {
+    margin-right: 10px;
 }
 
-.sort-form__duration>input {
+.sort-form__item--input:last-child {
+    margin-bottom: 80px;
+}
+
+.sort-form__item--input:last-child input {
     background-image: linear-gradient('#LG1');
 }

@@ -1,4 +1,5 @@
 import { Component } from "../../../core";
+import { Header } from "../../organizms";
 import { Catalog } from "../../molecules";
 import { Form } from "../../molecules";
 import { Owl } from "../../molecules";
@@ -123,7 +124,7 @@ export class CoursesPage extends Component {
                         path: "*"
                     },
                     {
-                        title: "Курсы создания сайтов и Front-End разработки",
+                        title: "Курсы создания сайтов<br>и Front-End разработки",
                         path: "*"
                     },
                     {
@@ -145,10 +146,14 @@ export class CoursesPage extends Component {
                 ]
             },
         ];
+        this.state = {
+            isDark: true,
+        }
     }
 
     render() {
         return `
+        <it-header class="header-dark" is-dark='${JSON.stringify(this.state.isDark)}'></it-header>
         <main class="all-courses">
             <h3 class="all-courses__title">Все программы обучения</h3>
             <section class="studying-programs">

@@ -5,6 +5,7 @@ export class Logo extends Component {
     constructor() {
         super();
         this.props = JSON.parse(this.getAttribute('logo'));
+        console.log(this.props)
     }
 
     static get observedAttributes() {
@@ -14,7 +15,7 @@ export class Logo extends Component {
     render() {
         return `
             <div>
-                <img src="${this.props.src1}" alt="logo">
+                <img src="${this.props}" alt="logo">
             </div>
         `
     }

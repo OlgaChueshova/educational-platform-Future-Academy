@@ -15,14 +15,15 @@ export class InputForm extends Component {
     render() {
         const { label, clasname, content, items } = this.props;
         return `
-            <form name="${this.props.label}" class="${this.props.clasname}">
-                <label for="${this.props.label}" class="sort-form__difficulty-level">${content}</label><br>
+            <form name="${this.props.label}">
+                <label for="${this.props.label}">${content}</label><br>
                     ${items.map((item) => {
                         return `
                             <it-input 
-                                value="${this.value}" 
+                                class="sort-form__item--input"
+                                clasname="input" 
+                                value="${item}" 
                                 type="radio">
-                                ${item}
                             </it-input>
                         `
                     }).join(' ')} 

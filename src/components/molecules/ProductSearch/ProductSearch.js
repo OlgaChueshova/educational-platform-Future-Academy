@@ -8,21 +8,18 @@ export class ProductSearch extends Component {
         this.fieldset = [
             {
                 label: "difficulty-level",
-                clasname: "sort-form__difficulty-level",
                 content: "Уровень сложности",
-                items: ['новичок', 'пользователь', 'профессионал', 'читер']
+                items: ['Hовичок', 'Пользователь', 'Профессионал', 'Читер']
             },
             {
                 label: "difficulty-level",
-                clasname: "sort-form__difficulty-level",
                 content: "Тип обучения",
-                items: ['курс', 'профессионал']
+                items: ['Курс', 'Профессионал']
             },
             {
                 label: "duration",
-                clasname: "sort-form__duration",
                 content: "Длительность",
-                items: ['1 - 6', '6 - 12', '19 - 24']
+                items: ['1 - 6 месяцев', '6 - 12 месяцев', '19 - 24 месяца']
             },
         ];
         this.data = [
@@ -104,7 +101,10 @@ export class ProductSearch extends Component {
     render() {
         return `
             <div class="studying-programs__layout">
-                <it-filter fields='${JSON.stringify(this.fieldset)}'></it-filter>
+                <it-filter 
+                    fields='${JSON.stringify(this.fieldset)}' 
+                    class="studying-programs__site-bar">
+                </it-filter>
                 <products-list 
                     data='${JSON.stringify(this.data)}' 
                     class="studying-programs__layout--wrapper">

@@ -22,6 +22,20 @@
     text-decoration: none;
 }
 
+.header-dark 
+.header__navigation 
+.header__navigation--list>.header__navigation--list-item
+.header__navigation--link {
+    color: white;
+}
+
+.header-dark 
+.header__navigation 
+.header__navigation--list>.header__navigation--list-item
+>.header__navigation--link span {
+    color: white;
+}
+
 .header__navigation--icon {
     vertical-align: text-top;
 }
@@ -51,9 +65,18 @@
 .header__navigation--dropdown-active::before {
     content: url('../../../assets/images/gradient/location-active.svg');
     position: absolute;
-    top: 49px;
+    top: 50px;
     left: -5px;
     width: 190px;
 }
+
+.header-dark .header__navigation--dropdown::after {
+    content: url('../../../assets/images/icons/pointer-bottom-white.svg');
+}
+
+.header-dark .header__navigation--dropdown-active::after {
+    content: url('../../../assets/images/icons/pointer-top-white.svg');
+}
+
 
 

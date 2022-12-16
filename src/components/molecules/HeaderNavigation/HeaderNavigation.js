@@ -46,7 +46,6 @@ export class HeaderNavigation extends Component {
     }
 
     render() {
-        console.log(this.props)
         return `
         <nav>
             <ul class="header__navigation--list">

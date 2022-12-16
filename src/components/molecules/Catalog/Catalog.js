@@ -42,7 +42,6 @@ export class Catalog extends Component {
     }
 
     componentWillUnmount() {
-        links.removeEventListener('click', this.onClick);
     }
 
     render() {

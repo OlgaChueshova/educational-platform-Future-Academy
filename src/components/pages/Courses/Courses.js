@@ -146,6 +146,23 @@ export class CoursesPage extends Component {
                 ]
             },
         ];
+        this.fields = [
+            {
+                type: 'text',
+                text: 'Ваше имя',
+                clasname: 'form__blank--name',
+            },
+            {
+                type: 'tel',
+                text: 'Ваш телефон',
+                clasname: 'form__blank--tel',
+            },
+            {
+                type: 'email',
+                text: 'Ваш e-mail',
+                clasname: 'form__blank--email',
+            },
+        ];
         this.state = {
             isDark: true,
         }
@@ -153,7 +170,7 @@ export class CoursesPage extends Component {
 
     render() {
         return `
-        <it-header class="header-dark" is-dark='${JSON.stringify(this.state.isDark)}'></it-header>
+        <it-header class="header-dark header-catalog" is-dark='${JSON.stringify(this.state.isDark)}'></it-header>
         <main class="all-courses">
             <h3 class="all-courses__title">Все программы обучения</h3>
             <section class="studying-programs">
@@ -172,7 +189,11 @@ export class CoursesPage extends Component {
                         text='Оставьте заявку и наши специалисты свяжутся с вами,
                         ответят на все вопросы и подберут подходящий вариант обучения.'>
                     </it-owl>
-                    <it-form></it-form>
+                    <it-form
+                        fields='${JSON.stringify(this.fields)}'
+                        class="form__blank"
+                    >
+                    </it-form>
                 </div>
             </section>
         </main>

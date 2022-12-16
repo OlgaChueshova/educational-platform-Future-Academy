@@ -9,7 +9,6 @@ export class Footer extends core.Component {
             [
                 {
                     logo: 'logo',
-                    path: '#',
                     src1: '../../../assets/images/logo/logo-white.svg'
                 },
                 [

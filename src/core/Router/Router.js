@@ -27,7 +27,6 @@ export class Router extends HTMLElement {
 
     renderPage(activeRoute) {
         const { component, title, params = {} } = activeRoute;
-        console.log(activeRoute)
         if(component) {
             while(this.outlet.firstChild) {
                 this.outlet.removeChild(this.outlet.firstChild)

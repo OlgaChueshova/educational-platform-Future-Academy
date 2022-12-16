@@ -26,7 +26,6 @@ export class Catalog extends Component {
         if (target) {
             evt.preventDefault();
             target.classList.add('course-catalog__list--item-active');
-
         }
         this.render();
     }
@@ -38,11 +37,12 @@ export class Catalog extends Component {
                 item.classList.add('course-catalog__list--item-active')
             }
         })
-        this.addEventListener('click', this.onClick);
+        const links = document.querySelector('.course-catalog__list');
+        links.addEventListener('click', this.onClick);
     }
 
     componentWillUnmount() {
-        this.removeEventListener('click', this.onClick);
+        links.removeEventListener('click', this.onClick);
     }
 
     render() {

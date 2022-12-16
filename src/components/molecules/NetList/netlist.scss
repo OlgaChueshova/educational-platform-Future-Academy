@@ -7,36 +7,36 @@
     margin-right: 20px;
 }
 
-.footer-networks__item {
+.footer-networks ul>li {
     margin-right: 20px;
 }
 
-.footer-networks__item:nth-of-type(1) img {
+.footer-networks ul>li:nth-of-type(1) img {
     width: 21px;
     height: 26px;
 }
 
-.footer-networks__item:nth-of-type(2) img {
+.footer-networks ul>li:nth-of-type(2) img {
     width: 16px;
     height: 26px;
 }
 
-.footer-networks__item:nth-of-type(3) img {
+.footer-networks ul>li:nth-of-type(3) img {
     width: 18px;
     height: 26px;
 }
 
-.footer-networks__item:nth-of-type(4) img {
+.footer-networks ul>li:nth-of-type(4) img {
     width: 21px;
     height: 26px;
 }
 
-.footer-networks__item:nth-of-type(5) img {
+.footer-networks ul>li:nth-of-type(5) img {
     width: 16px;
     height: 26px;
 }
 
-.footer-networks__link img:hover {
+.footer-networks ul>li img:hover {
     transform: scale(130%);
     transition: 0.3s;
 }

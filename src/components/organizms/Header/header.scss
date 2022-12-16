@@ -7,7 +7,7 @@
     align-items: center;
 }
 
-.header-dark>.header-wrapper {
+.header-dark .header-wrapper {
     background-color: var(--dark-blue);
 }
 
@@ -127,7 +127,7 @@
     z-index: 2;
 }
 
-.header-dark .header__navigation 
+.header-catalog .header__navigation 
 .header__navigation--list>.header__navigation--list-item:nth-of-type(1)::after {
     content: url(../../../assets/images/gradient/catalog-active.svg);
     position: absolute;

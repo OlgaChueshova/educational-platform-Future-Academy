@@ -47,7 +47,7 @@ export class Link extends Component {
     }
 
     static get observedAttributes() {
-        return ['link', 'clasname']
+        return ['link']
     }
 
     render() {
@@ -55,7 +55,7 @@ export class Link extends Component {
             <a href='${this.props.path}' ${this.props.clasname ? `${this.props.clasname}` : ''}>
                 ${this.props.icon
                 ? `<img src="${this.state.isActive
-                    ? `${this.props.icon2}`
+                    ? `${this.props.icon2 ? this.props.icon2 : this.props.icon}`
                     : `${this.props.icon}`}" 
                     alt="${this.props.label}">`
                 : ''}

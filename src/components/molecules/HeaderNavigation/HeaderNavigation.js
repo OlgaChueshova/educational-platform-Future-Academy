@@ -6,9 +6,6 @@ import './headerNavigation.scss';
 export class HeaderNavigation extends Component {
     constructor() {
         super();
-        this.state = {
-            isDark: true,
-        }
         this.props = JSON.parse(this.getAttribute('links'));
         this.toggleSubMenu = this.toggleSubMenu.bind(this);
         this.removeSubMenu = this.removeSubMenu.bind(this);
@@ -39,11 +36,17 @@ export class HeaderNavigation extends Component {
         window.addEventListener('click', this.removeSubMenu);
     }
 
+    componentWillUnmount() {
+        this.removeEventListener('click', this.toggleSubMenu);
+        window.removeEventListener('click', this.removeSubMenu);
+    }
+
     static get observedAttributes() {
-        return ['links']
+        return ['links'];
     }
 
     render() {
+        console.log(this.props)
         return `
         <nav>
             <ul class="header__navigation--list">
@@ -51,11 +54,16 @@ export class HeaderNavigation extends Component {
                      return `
                         <li class="header__navigation--list-item ${item.sublinks ? "header__navigation--dropdown" : ''}">
                             ${item.component 
-                            ? `<it-route-link 
+                            ? `<it-route-link
+                                    class="header__navigation--link" 
                                     link='${JSON.stringify(item)}'
-                                    isdark='${this.props.isDark}'>
+                                >
                                 </it-route-link>`
-                            : `<it-link link='${JSON.stringify(item)}' class="header__navigation--link"></it-link>` 
+                            : `<it-link 
+                                    link='${JSON.stringify(item)}' 
+                                    class="header__navigation--link"
+                                    >
+                                </it-link>` 
                             }
                             ${item.sublinks 
                             ? `<it-submenu sublinks='${JSON.stringify(item.sublinks)}'></it-submenu>`

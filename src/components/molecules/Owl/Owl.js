@@ -9,7 +9,6 @@ export class Owl extends Component {
 
     render() {
         const { title, text, lastword } = this.props;
-        console.log(this.props)
         return `
             <div>
                 <img src="../../../assets/images/owl/owl.svg" alt="owl">

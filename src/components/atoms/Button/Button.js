@@ -3,8 +3,6 @@ import './button.scss'
 
 export class Button extends Component {
 
-
-
 playVideo = (evt) => {
     const target = evt.target.closest('.video__btn');
     const video = document.querySelector('.video__clip');
@@ -34,7 +32,6 @@ playVideo = (evt) => {
     }
 
     render() {
-        console.log(this.props)
         return `
             <button type="${this.props.type}" class="${this.props.clasname}">
                 ${this.props.img

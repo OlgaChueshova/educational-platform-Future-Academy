@@ -16,3 +16,4 @@ export * from './Filter';
 export * from './InputForm';
 export * from './ProductList';
 export * from './Card';
+export * from './SignUpForm';

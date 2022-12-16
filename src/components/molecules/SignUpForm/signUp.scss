@@ -1,0 +1,101 @@
+.sign-up-forms {
+    display: flex;
+    flex-direction: row;
+    width: 580px;
+    min-height: 500px;
+    height: min-content;
+    margin: 94px 670px 99px 670px;
+    position: relative;
+    outline: none !important;
+    border: none !important;
+}
+
+.sign-up-forms__form {
+    width: 280px;
+    padding-bottom: 15px;
+    align-items: center;
+    border-bottom: 1px solid var(--gray-5);
+
+}
+
+.sign-up-forms__form-active {
+    border-bottom: 5px solid transparent;
+    border-image: linear-gradient(to right, #F7941D, #27AAE1);
+    border-image-slice: 1;
+}
+
+.sign-up-forms__form-active .sign-up-forms__form--container {
+    display: flex;
+}
+
+.sign-up-forms__form--container {
+    display: none;
+    position: absolute;
+    top: 90px;
+    left: 100px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sign-up-forms__form--label {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.sign-up-forms__form--container input {
+    width: 380px;
+    height: 50px;
+    background-color: #DDDFE6;
+    border-radius: 6px;
+    padding-left: 19px;
+    margin-bottom: 20px;
+    border: none !important;
+    outline: none !important;
+}
+
+.sign-up-networks__title {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px; 
+    text-align: center;
+    padding-top: 16px;
+}
+
+.sign-up-networks ul {
+    display: flex;
+    flex-direction: row;
+    width: 250px;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 19px;
+    margin-bottom: 32px;
+}
+
+.sign-up-networks ul>li img:hover {
+    transform: scale(130%);
+    transition: 0.3s;
+}
+
+.sign-up-forms__form--button>button {
+    background-color: var(--orange);
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 26px;
+    color: white;
+    text-align: center;
+    outline: 0 !important;
+    border: none !important;
+    height: 50px;
+    width: 180px;
+}
+
+.sign-up-forms__form--button>button:hover {
+    background-color: #FFAE4D;
+} 

@@ -25,7 +25,7 @@ export class List extends Component {
                             :   `
                                 <li class="footer-section__list--item">
                                     ${item.logo 
-                                    ? `<it-logo class="footer-contacts__logo" logo='${JSON.stringify(item.src1)}'></it-logo>`
+                                    ? `<it-logo class="footer-contacts__logo" logo='${item.src1}'></it-logo>`
                                     : `${item.component 
                                         ? `<it-route-link class="footer-section__list--link" link='${JSON.stringify(item)}'></it-route-link>`
                                         :  `${item.path 

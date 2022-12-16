@@ -6,40 +6,29 @@ import './form.scss';
 export class Form extends Component {
     constructor() {
         super();
-        this.fields = [
-            {
-                type: 'text',
-                text: 'Ваше имя',
-                clasname: 'form__blank--name',
-            },
-            {
-                type: 'tel',
-                text: 'Ваш телефон',
-                clasname: 'form__blank--tel',
-            },
-            {
-                type: 'email',
-                text: 'Ваш e-mail',
-                clasname: 'form__blank--email',
-            },
-        ];
+        this.props = JSON.parse(this.getAttribute('fields'));
         this.state = {
             inputValue: '',
         }
     }
 
+    static get observedAttributes() {
+        return ['fields']
+    }
+
     render() {
         return `
-            <form action="//" method="post" class="form__blank">
-                <div class="form__blank--container">
-                    ${this.fields.map((item) => {
-                        return `<it-input 
-                                        value='${this.state.inputValue}'
-                                        type='${item.type}'
-                                        placeholder='${item.text}' 
-                                        class='${item.clasname}'>
-                                </it-input>`
-                    }).join(' ')}
+            <form>
+                <div>
+                    ${this.props.map((item) => {
+                        return `
+                            <it-input 
+                                value='${this.state.inputValue}'
+                                type='${item.type}'
+                                placeholder='${item.text}' 
+                                class='${item.clasname}'>
+                            </it-input>`
+                        }).join(' ')}
                     <p class="form__blank--text">Нажимая на кнопку, я соглашаюсь на обработку персональных данных и с
                         правилами пользования Платформой
                     </p>

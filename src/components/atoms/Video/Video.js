@@ -14,7 +14,7 @@ export class Video extends Component {
     componentDidMount() {
         const video = document.querySelector('.video__clip');
         const videoClip = new Video(video);
-        videoClip.load();
+     
         window.addEventListener("play-video", this.playVideo);
     }
 

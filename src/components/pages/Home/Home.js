@@ -306,12 +306,32 @@ export class HomePage extends core.Component {
                 text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, rem quos ipsum nostrum sequi nulla obcaecati a delectus cupiditate maxime est deleniti quis doloremque culpa, consequuntur dolorum quisquam itaque quaerat reiciendis molestiae laborum placeat ratione. Necessitatibus nostrum sint rem debitis, repellat praesentium assumenda eligendi. Exercitationem rerum ipsum consequuntur quos officia?",
                 rating: "4,87/5"
             },
-        ]
+        ];
+        this.fields = [
+            {
+                type: 'text',
+                text: 'Ваше имя',
+                clasname: 'form__blank--name',
+            },
+            {
+                type: 'tel',
+                text: 'Ваш телефон',
+                clasname: 'form__blank--tel',
+            },
+            {
+                type: 'email',
+                text: 'Ваш e-mail',
+                clasname: 'form__blank--email',
+            },
+        ];
+        this.state = {
+            isDark: false,
+        }
     }
 
     render() {
         return `
-        <it-header></it-header>
+        <it-header is-dark='${JSON.stringify(this.state.isDark)}'></it-header>
         <main>
             <section class="header-bottom">
                 <div class="header-bottom__title">
@@ -378,7 +398,11 @@ export class HomePage extends core.Component {
                     text='Оставьте заявку и наши специалисты свяжутся с вами,
                     ответят на все вопросы и подберут подходящий вариант обучения.'>
                 </it-owl>
-                <it-form></it-form>
+                <it-form
+                class="form__blank"
+                    fields='${JSON.stringify(this.fields)}'
+                >
+                </it-form>
             </section>
             <it-gradient></it-gradient>
         </main>

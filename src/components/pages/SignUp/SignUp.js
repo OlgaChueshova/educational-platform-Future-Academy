@@ -1,67 +1,18 @@
 import * as core from "../../../core";
-import { SignUpForm } from "../../molecules/SignUpForm/SignUpForm";
+import { initialState } from "../../atoms/SignUpInput/initialState";
+import { SignUpForm } from "../../molecules";
+import { Preloader } from "../../atoms";
 import './signUp.scss'
 
 export class SignUpPage extends core.Component {
     constructor() {
         super();
-        this.signInFields = [
-            {
-                type: 'text',
-                text: 'Введите ваше имя',
-            },
-            {
-                type: 'email',
-                text: 'Введите ваш e-mail',
-            },
-            {
-                type: 'tel',
-                text: 'Введите пароль',
-            },
-        ];
-        this.signUpFields = [
-            {
-                type: 'text',
-                text: 'Введите ваше имя',
-            },
-            {
-                type: 'email',
-                text: 'Введите ваш e-mail',
-            },
-            {
-                type: 'tel',
-                text: 'Введите пароль',
-            },
-            {
-                type: 'tel',
-                text: 'Повторите пароль',
-            },
-        ];
-        this.networks = [
-            {
-                label: 'vk',
-                icon: '../../../assets/images/icons/networks/vk-gradient.svg',
-            },
-            {
-                label: 'instagram',
-                icon: '../../../assets/images/icons/networks/instagram-gradient.svg',
-            },
-            {
-                label: 'fb',
-                icon: '../../../assets/images/icons/networks/facebook-gradient.svg',
-            },
-            {
-                label: 'youtube',
-                icon: '../../../assets/images/icons/networks/youtube-gradient.svg',
-            },
-            {
-                label: 'telegram',
-                icon: '../../../assets/images/icons/networks/telegram-gradient.svg',
-            },
-        ];
         this.state = {
             isDark: true,
-            inputValue: '',
+            fields: {
+                ...initialState,
+            },
+            isLoading: false
         }
     }
     render() {
@@ -72,34 +23,27 @@ export class SignUpPage extends core.Component {
                 </it-header>
 
                 <main class="sign-up-main">
-                <div class="sign-up__image owl">
-                    <it-owl
-                        title=""
-                        text="Войдите в систему или зарегистрируйтесь, <br> если у вас еще нет аккаунта.">
-                    </it-owl>
-                </div>
-                
-                <fieldset class="sign-up-forms">
-                    <sign-up-form 
-                        fields='${JSON.stringify(this.signInFields)}'
-                        class="sign-up-forms__form"
-                        name="sign-in"
-                        title="Вход"
-                        label="Войти"
-                        networks='${JSON.stringify(this.networks)}'
-                    >
-                    </sign-up-form>
-                    <sign-up-form 
-                        fields='${JSON.stringify(this.signUpFields)}'
-                        class="sign-up-forms__form"
-                        name="sign-up"
-                        title="Регистрация"
-                        label="Зарегистрироваться"
-                        networks='${JSON.stringify(this.networks)}'
-                    >
-                    </sign-up-form>
-                </fieldset>
-            </main>
+                    <div class="sign-up__image owl">
+                        <it-owl
+                            text="Войдите в систему или зарегистрируйтесь,<br>если у вас еще нет аккаунта.">
+                        </it-owl>
+                    </div>
+                    
+                    <fieldset class="sign-up-forms">   
+                        ${Object.keys(this.state.fields)
+                            .map((key) => {
+                                return ` 
+                                    <it-preloader is-loading='${this.state.isLoading}' class='preloader'>
+                                        <sign-up-form
+                                            fields='${JSON.stringify(this.state.fields[key])}'
+                                            class="sign-up-forms__form"
+                                            >
+                                        </sign-up-form>
+                                    </it-preloader>
+                           ` 
+                        }).join(' ')}  
+                    </fieldset>
+                </main>
                 `
     }
 }

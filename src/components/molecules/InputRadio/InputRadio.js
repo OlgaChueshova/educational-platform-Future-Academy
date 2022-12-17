@@ -1,7 +1,7 @@
 import { Component } from '../../../core';
-import './inputForm.scss';
+import './inputRadio.scss';
 
-export class InputForm extends Component {
+export class InputRadio extends Component {
     constructor() {
         super();
         this.props = JSON.parse(this.getAttribute('field'));
@@ -32,5 +32,5 @@ export class InputForm extends Component {
     }
 }
 
-customElements.define('input-form', InputForm)
+customElements.define('input-radio', InputRadio)
 

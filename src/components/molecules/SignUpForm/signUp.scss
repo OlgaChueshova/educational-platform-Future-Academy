@@ -1,4 +1,5 @@
-.sign-up-forms {
+.sign-up-forms,
+.sign-in-forms {
     display: flex;
     flex-direction: row;
     width: 580px;
@@ -10,7 +11,8 @@
     border: none !important;
 }
 
-.sign-up-forms__form {
+.sign-up-forms__form,
+.sign-in-forms__form {
     width: 280px;
     padding-bottom: 15px;
     align-items: center;
@@ -18,17 +20,20 @@
 
 }
 
-.sign-up-forms__form-active {
+.sign-up-forms__form-active
+.sign-in-forms__form-active {
     border-bottom: 5px solid transparent;
     border-image: linear-gradient(to right, #F7941D, #27AAE1);
     border-image-slice: 1;
 }
 
-.sign-up-forms__form-active .sign-up-forms__form--container {
+.sign-up-forms__form-active .sign-up-forms__form--container,
+.sign-in-forms__form-active .sign-in-forms__form--container {
     display: flex;
 }
 
-.sign-up-forms__form--container {
+.sign-up-forms__form--container,
+.sign-in-forms__form--container {
     display: none;
     position: absolute;
     top: 90px;
@@ -37,7 +42,8 @@
     align-items: center;
 }
 
-.sign-up-forms__form--label {
+.sign-up-forms__form--label,
+.sign-in-forms__form--label {
     font-family: 'Montserrat';
     font-weight: 700;
     font-size: 16px;
@@ -47,7 +53,8 @@
     text-align: center;
 }
 
-.sign-up-forms__form--container input {
+.sign-up-forms__form--container input
+.sign-in-forms__form--container input {
     width: 380px;
     height: 50px;
     background-color: #DDDFE6;
@@ -58,7 +65,8 @@
     outline: none !important;
 }
 
-.sign-up-networks__title {
+.sign-up-networks__title,
+.sign-in-networks__title {
     font-family: 'Montserrat';
     font-weight: 400;
     font-size: 14px;
@@ -67,7 +75,8 @@
     padding-top: 16px;
 }
 
-.sign-up-networks ul {
+.sign-up-networks ul,
+.sign-in-networks ul {
     display: flex;
     flex-direction: row;
     width: 250px;
@@ -82,7 +91,8 @@
     transition: 0.3s;
 }
 
-.sign-up-forms__form--button>button {
+.sign-up-forms__form--button>button,
+.sign-in-forms__form--button>button {
     background-color: var(--orange);
     border-radius: 6px;
     font-weight: 700;
@@ -96,6 +106,7 @@
     width: 180px;
 }
 
-.sign-up-forms__form--button>button:hover {
+.sign-up-forms__form--button>button:hover,
+.sign-in-forms__form--button>button:hover {
     background-color: #FFAE4D;
 } 

@@ -13,7 +13,7 @@ export class Owl extends Component {
             <div>
                 <img src="../../../assets/images/owl/owl.svg" alt="owl">
                 <div>
-                    <p>${title}</p><br>
+                    <p>${title ? title : ''}</p><br>
                     <p>${text}</p><br>
                     ${lastword ? `<p>${lastword}</p><br>` : ''}
                 </div>

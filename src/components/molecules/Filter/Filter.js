@@ -1,5 +1,5 @@
 import { Component } from "../../../core";
-import { InputForm } from "../InputForm";
+import { InputRadio } from "../InputRadio";
 import './filter.scss';
 
 export class Filter extends Component {
@@ -18,10 +18,10 @@ export class Filter extends Component {
                 <fieldset class="studying-programs__site-bar--filter sort-form">
                     ${this.props.map((item) => {
                         return `
-                            <input-form 
+                            <input-radio 
                                 field='${JSON.stringify(item)}' 
                                 class="sort-form__item">
-                            </input-form>
+                            </input-radio>
                         `
                     }).join(' ')}
                 </fieldset>

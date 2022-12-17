@@ -13,7 +13,7 @@ export * from './GridMenu';
 export * from './Gradient';
 export * from './ProductSearch';
 export * from './Filter';
-export * from './InputForm';
+export * from './InputRadio';
 export * from './ProductList';
 export * from './Card';
 export * from './SignUpForm';

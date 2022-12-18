@@ -83,7 +83,7 @@ export class SignUpPage extends core.Component {
                         </it-owl>
                     </div>
                     
-                    <div>   
+                    <fieldset class="sign-up-forms">   
                         ${Object.keys(this.state.fields)
                             .map((key) => {
                                 return ` 
@@ -94,7 +94,7 @@ export class SignUpPage extends core.Component {
                                     </sign-up-form>   
                                 ` 
                         }).join(' ')}  
-                    </div>
+                    </fieldset>
                 </main>
                 `
     }

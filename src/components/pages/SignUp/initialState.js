@@ -96,17 +96,7 @@ export const initialState = {
                 text: 'Введите пароль',
                 controlName: 'password',
                 className: 'sign-up-forms__form--password'
-            },
-            password2: {
-                value: '',
-                errors: {},
-                isTouched: false,
-                isValid: false,
-                type: 'password',
-                text: 'Повторите пароль',
-                controlName: 'password',
-                className: 'sign-up-forms__form--password'
-            },
+            }
         },
         networks:  [
             {

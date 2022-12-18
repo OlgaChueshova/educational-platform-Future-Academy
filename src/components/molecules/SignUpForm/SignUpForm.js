@@ -31,7 +31,7 @@ export class SignUpForm extends core.Component {
     }
 
     registerUser = (data) => {
-        console.log(data)
+        console.log('data')
         this.toggleIsLoading();
         authService.signUp(data.email, data.password)
             .then((user) => {
@@ -62,9 +62,6 @@ export class SignUpForm extends core.Component {
                 ],
                 password: [
                     Validator.required("Поле не должно быть пустым")
-                ],
-                password2: [
-                    Validator.required("Поле не должно быть пустым")
                 ]
             })
         }
@@ -79,9 +76,9 @@ export class SignUpForm extends core.Component {
         const { title, fields, formName, networks, button } = this.props;
         return `
             <div>
-                <form name="${formName}" class="${formName}"  class="sign-up-forms">
+                <form name="${formName}" class="${formName}">
                     <label for="${formName}" class="sign-up-forms__form--label"><a>${title}</a></label>
-                    <fieldset class="sign-up-forms__form--container">
+                    <div class="sign-up-forms__form--container">
                         ${Object.keys(fields).map((key) => {
             return `
                                 <sign-up-input
@@ -110,7 +107,7 @@ export class SignUpForm extends core.Component {
                             content="${button.content}"
                         >${button.content}
                         </button>
-                    </fieldset>
+                    </div>
                 </form>
             </div>
           `

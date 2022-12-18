@@ -20,15 +20,17 @@ export class signUpInput extends Component {
     }
 
     render() {
-        const controllClassName = JSON.parse(this.props['is-valid' ? 'is-valid' : 'is-invalid']);
-        const isAddClassName = JSON.parse(this.props['is-touched'] ? controllClassName : '');
+        const controllClassName = JSON.parse(this.props['is-valid']) ? 'is-valid' : 'is-invalid';
+        const isAddClassName = JSON.parse(this.props['is-touched']) ? controllClassName : '';
         return `
-            <input 
+            <input
+                name="${this.props['control-name']}" 
                 type="${this.props.type}"
                 placeholder="${this.props.placeholder}"  
                 value='${this.props.value}'
-                class='${isAddClassName} ${this.props['class-name'] ?? ''}'
+                class='${isAddClassName} ${this.props['class-name'] ? this.props['class-name'] : ''}'
             />
+            <div class="invalid-feedback">${this.props['error-message']}</div>
         `
     }
 }

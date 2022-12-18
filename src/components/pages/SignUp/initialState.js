@@ -10,6 +10,8 @@ export const initialState = {
                 isValid: false,
                 type: 'text',
                 text: 'Введите ваше имя',
+                controlName: 'user',
+                className: 'sign-up-forms__form--name'
             },
             email: {
                 value: '',
@@ -18,14 +20,18 @@ export const initialState = {
                 isValid: false,
                 type: 'email',
                 text: 'Введите ваш e-mail',
+                controlName: 'email',
+                className: 'sign-up-forms__form--email'
             },
             password: {
                 value: '',
                 errors: {},
                 isTouched: false,
                 isValid: false,
-                type: 'text',
+                type: 'password',
                 text: 'Введите пароль',
+                controlName: 'password',
+                className: 'sign-up-forms__form--password'
             }
         },
         networks:  [
@@ -52,7 +58,7 @@ export const initialState = {
         ],
         button: {
             type: 'submit',
-            classname: 'sign-up-forms__form--button', 
+            className: 'sign-up-forms__form--button', 
             content: 'Войти', 
             eventType: ''
         }
@@ -68,6 +74,8 @@ export const initialState = {
                 isValid: false,
                 type: 'text',
                 text: 'Введите ваше имя',
+                controlName: 'user',
+                className: 'sign-up-forms__form--name'
             },
             email: {
                 value: '',
@@ -76,22 +84,28 @@ export const initialState = {
                 isValid: false,
                 type: 'email',
                 text: 'Введите ваш e-mail',
+                controlName: 'email',
+                className: 'sign-up-forms__form--email'
             },
             password: {
                 value: '',
                 errors: {},
                 isTouched: false,
                 isValid: false,
-                type: 'text',
+                type: 'password',
                 text: 'Введите пароль',
+                controlName: 'password',
+                className: 'sign-up-forms__form--password'
             },
-            password: {
+            password2: {
                 value: '',
                 errors: {},
                 isTouched: false,
                 isValid: false,
-                type: 'text',
+                type: 'password',
                 text: 'Повторите пароль',
+                controlName: 'password',
+                className: 'sign-up-forms__form--password'
             },
         },
         networks:  [
@@ -118,7 +132,7 @@ export const initialState = {
         ],
         button: {
             type: 'submit',
-            classname: 'sign-up-forms__form--button', 
+            className: 'sign-up-forms__form--button', 
             content: 'Зарегистрироваться', 
             eventType: ''
         }

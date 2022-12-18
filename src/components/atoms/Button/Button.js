@@ -14,7 +14,6 @@ playVideo = (evt) => {
     this.render();
 }
 
-
     componentDidMount() {
         this.addEventListener("click", (evt) => {
             evt.preventDefault();
@@ -29,6 +28,10 @@ playVideo = (evt) => {
 
     static get observedAttributes() {
         return ['type', 'content', 'eventType', 'clasname', 'img']
+    }
+
+    componentDidMount() {
+        
     }
 
     render() {

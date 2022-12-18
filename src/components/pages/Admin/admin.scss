@@ -1,0 +1,92 @@
+.admin {
+    width: 100vw;
+    height: min-content;
+    padding: 50px 300px;
+    position: relative;
+}
+
+.admin-form__groop {
+    margin-bottom: 100px;
+}
+
+.admin-form__groop--title {
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 17px; 
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.admin-form__groop--button {
+    background-color: var(--orange) !important;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 26px;
+    color: white;
+    text-align: center;
+    outline: 0 !important;
+    border: none !important;
+    height: 50px;
+    width: 180px;
+}
+
+.admin-form__groop--button:hover {
+    background-color: #FFAE4D !important;
+} 
+
+.admin__img--cross {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 20%;
+    left: 3%;
+    z-index: 2;
+}
+
+.admin__img--cross--little {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 60%;
+    right: 5%;
+    z-index: 2;
+}
+
+.admin__img--circle {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 5%;
+    right: 5%;
+    z-index: 2;
+}
+
+.admin__img--triangle {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    bottom: 2%;
+    left: 50%;
+    z-index: 2;
+}
+
+.admin__img--line1 {
+    position: absolute;
+    width: 400px;
+    height: 180px;
+    bottom: -3%;
+    left: 8%;
+    z-index: 2;
+}
+
+.admin__img--line2 {
+    position: absolute;
+    width: 600px;
+    height: 200px;
+    top: 45%;
+    right: 5%;
+    z-index: 2;
+
+}

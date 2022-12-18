@@ -19,17 +19,18 @@ export class FormManager {
 
     init(ref, scheme) {
         this.ref = ref;
+        console.log(ref)
         this.scheme = scheme;
         const fields = Object.keys(scheme);
-        console.log(fields)
         fields.forEach((key) => {
-            console.log(ref)
-            return ref.querySelector(`input[name="${key}"]`)?.addEventListener('blur', this.validate(key));
+            console.log(key)
+            console.log(ref.querySelector(`input[name="${key}"]`))
+            return ref.querySelector(`input[name="${key}"]`).addEventListener('blur', this.validate(key));
         })
     }
 
     dispatch(target, data) {
-        target.dispatchEvent(new CustomEvent('validate-controls', { bubbles: true, detail: data }));
+        target.dispatchEvent(new CustomEvent('validate-controlls', { bubbles: true, detail: data }));
     }
 
     validate = (key) => {
@@ -43,13 +44,12 @@ export class FormManager {
                     acc[key] = value;
                     return acc;
                 }, {});
-                console.log(res)
 
             this.dispatch(evt.target, {
                 [key]: {
                     value,
                     errors: res,
-                    isToushed: true,
+                    isTouched: 'true',
                     isValid: Object.values(res).length === 0,
                 },
             });

@@ -4,7 +4,7 @@ import './preloader.scss';
 export class Preloader extends Component{
     constructor() {
         super();
-        this.isShadow = true;
+        
     }
 
     static get observedAttributes() {

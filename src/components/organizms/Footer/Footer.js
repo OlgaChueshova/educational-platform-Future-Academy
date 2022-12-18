@@ -200,9 +200,19 @@ export class Footer extends core.Component {
                 title: 'Информация',
                 sublinks: [
                     {
-                        title: 'Home Page',
+                        title: 'Главная',
                         path: '/',
                         component: 'home-page'
+                    },
+                    {
+                        title: 'Администратор',
+                        path: '/admin',
+                        component: 'admin-page'
+                    },
+                    {
+                        title: 'Об академии',
+                        path: '/',
+                        component: '*'
                     },
                     {
                         title: 'Мероприятия',

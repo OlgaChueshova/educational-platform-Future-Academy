@@ -1,21 +1,21 @@
-.sign-up-forms__form {
+.sign-in-forms__form {
     width: 280px;
     align-items: center;
     border-bottom: 1px solid var(--gray-5);
 
 }
 
-.form-active .sign-up-forms__form--label {
+.form-active .sign-in-forms__form--label {
     border-bottom: 5px solid transparent;
     border-image: linear-gradient(to right, #F7941D, #27AAE1);
     border-image-slice: 1;
 }
 
-.form-active .sign-up-forms__form--container {
+.form-active .sign-in-forms__form--container {
     display: flex;
 }
 
-.sign-up-forms__form--container {
+.sign-in-forms__form--container {
     display: none;
     position: absolute;
     top: 90px;
@@ -24,7 +24,7 @@
     align-items: center;
 }
 
-.sign-up-forms__form--label {
+.sign-in-forms__form--label {
     font-family: 'Montserrat';
     font-weight: 700;
     font-size: 16px;
@@ -35,7 +35,7 @@
     padding-bottom: 30px;
 }
 
-.sign-up-forms__form--container input {
+.sign-in-forms__form--container input {
     width: 380px;
     height: 50px;
     background-color: #DDDFE6;
@@ -46,7 +46,7 @@
     outline: none !important;
 }
 
-.sign-up-networks__title {
+.sign-in-networks__title {
     font-family: 'Montserrat';
     font-weight: 400;
     font-size: 14px;
@@ -55,7 +55,7 @@
     padding-top: 16px;
 }
 
-.sign-up-networks ul  {
+.sign-in-networks ul  {
     display: flex;
     flex-direction: row;
     width: 250px;
@@ -65,12 +65,12 @@
     margin-bottom: 32px;
 }
 
-.sign-up-networks ul>li img:hover {
+.sign-in-networks ul>li img:hover {
     transform: scale(130%);
     transition: 0.3s;
 }
 
-.sign-up-forms__form--button {
+.sign-in-forms__form--button {
     background-color: var(--orange);
     border-radius: 6px;
     font-weight: 700;
@@ -84,6 +84,6 @@
     width: 180px;
 }
 
-.sign-up-forms__form--button:hover {
+.sign-in-forms__form--button:hover {
     background-color: #FFAE4D;
 } 

@@ -19,3 +19,16 @@
     top: 220px !important;
     left: 130px !important;
 }
+
+.sign-up-forms>ul  {
+    display: flex;
+    flex-direction: row;
+    width: 580px;
+    min-height: 500px;
+    height: min-content;
+    margin: 94px 670px 99px 670px;
+    position: relative;
+    outline: none !important;
+    border: none !important;
+}
+

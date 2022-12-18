@@ -7,7 +7,6 @@ export class Validator {
             message,
           };
         }
-  
         return {};
       };
     }
@@ -19,7 +18,6 @@ export class Validator {
             message,
           };
         }
-  
         return {};
       };
     }

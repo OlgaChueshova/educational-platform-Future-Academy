@@ -7,6 +7,7 @@ import { NetList } from '../NetList';
 import { Preloader } from '../../atoms';
 import { initialState } from './initialState';
 import { authService } from '../../../services/Auth';
+import { appRoutes } from '../../../constants/appRoutes';
 import './signUp.scss';
 
 export class SignUpForm extends core.Component {
@@ -62,7 +63,9 @@ export class SignUpForm extends core.Component {
         this.toggleIsLoading();
         authService.signUp(data.email, data.password)
             .then((user) => {
-                console.log(user)
+                console.log(user);
+                authService.user = user;
+                this.dispatch('change-route', { target: appRoutes.home })
             })
             .catch((error) => {
                 this.setState((state) => {
@@ -109,7 +112,6 @@ export class SignUpForm extends core.Component {
     componentDidMount() {
         this.addEventListener('click', this.validateForm);
         this.addEventListener('validate-controlls', this.validate);
-        
         this.addEventListener('submit', this.form.handleSubmit(this.registerUser));
     }
 
@@ -120,7 +122,7 @@ export class SignUpForm extends core.Component {
     render() {
         const { fields: { user, email, password } } = this.state;
         return `
-                <form name="sign-up" class="sign-up-forms__form">
+                <form method='get' name="sign-up" class="sign-up-forms__form">
                     <label for="sign-up" class="sign-up-forms__form--label">Регистрация</label>
                     <div class="invalid-feedback">${this.state.error}</div>
                     <div class="sign-up-forms__form--container">
@@ -159,13 +161,12 @@ export class SignUpForm extends core.Component {
                             class="sign-up-forms__form--networks sign-up-networks"
                             networks='${JSON.stringify(this.networks)}'
                         ></it-net-list>
-                        <input
-                            name="sign-up"
+                        <button
                             class="sign-up-forms__form--button"
                             type="submit" 
                             eventType=""
                             content="Зарегистрироваться"
-                        />
+                        >Зарегистрироваться</button>
                     </div>
                 </form>
            `

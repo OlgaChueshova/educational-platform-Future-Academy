@@ -6,6 +6,7 @@ export class FormManager {
     }
 
     handleSubmit = (callback) => {
+        console.log('jbhvgc')
         return (evt) => {
             evt.preventDefault();
             const formData = new FormData(evt.target);

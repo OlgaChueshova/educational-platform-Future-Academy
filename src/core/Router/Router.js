@@ -53,7 +53,6 @@ export class Router extends HTMLElement {
     }
 
     onChangeRoute = (evt) => {
-        console.log(evt.detail.target)
         this.navigate(evt.detail.target)
     }
 

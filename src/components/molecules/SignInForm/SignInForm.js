@@ -109,17 +109,18 @@ export class SignInForm extends core.Component {
     componentDidMount() {
         this.addEventListener('click', this.validateForm);
         this.addEventListener('validate-controlls', this.validate);
-        this.addEventListener('submit', this.form.handleSubmit(this.registerUser));
+        this.addEventListener(this.click, this.getForm);
     }
 
     componentWillUnmount() {
         this.removeEventListener('validate-controlls', this.validate);
+        this.addEventListener('submit', this.form.handleSubmit(this.registerUser));
     }
 
     render() { 
         const { fields: { user, email, password } } = this.state;
         return `
-                <form name="sign-in" class="sign-in-forms__form">
+                <form method='get' name="sign-in" class="sign-in-forms__form">
                     <label for="sign-in" class="sign-in-forms__form--label">Вход</label>
                     <div class="invalid-feedback">${this.state.error}</div>
                     <div class="sign-in-forms__form--container">
@@ -162,14 +163,12 @@ export class SignInForm extends core.Component {
                             networks='${JSON.stringify(this.networks)}'
                         >
                         </it-net-list>
-                        <input
-                            name='sign-in'
+                        <button
                             class="sign-in-forms__form--button"
                             type="submit" 
                             eventType=""
                             content="Войти"
-                        />
-                        </it-button>
+                        >Войти</button>
                     </div>
                 </form>
           `

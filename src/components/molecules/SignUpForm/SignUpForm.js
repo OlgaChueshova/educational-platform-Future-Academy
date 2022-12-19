@@ -112,7 +112,7 @@ export class SignUpForm extends core.Component {
     componentDidMount() {
         this.addEventListener('click', this.validateForm);
         this.addEventListener('validate-controlls', this.validate);
-        this.addEventListener('submit', this.form.handleSubmit(this.registerUser));
+        this.addEventListener('submit', this.form.handleSubmit(this.registerUser)); 
     }
 
     componentWillUnmount() {
@@ -122,7 +122,7 @@ export class SignUpForm extends core.Component {
     render() {
         const { fields: { user, email, password } } = this.state;
         return `
-                <form method='get' name="sign-up" class="sign-up-forms__form">
+                <form class="sign-up-forms__form">
                     <label for="sign-up" class="sign-up-forms__form--label">Регистрация</label>
                     <div class="invalid-feedback">${this.state.error}</div>
                     <div class="sign-up-forms__form--container">
@@ -164,8 +164,6 @@ export class SignUpForm extends core.Component {
                         <button
                             class="sign-up-forms__form--button"
                             type="submit" 
-                            eventType=""
-                            content="Зарегистрироваться"
                         >Зарегистрироваться</button>
                     </div>
                 </form>

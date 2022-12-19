@@ -16,7 +16,6 @@ export class SignUpPage extends core.Component {
         const target = evt.target.closest('.forms__form');
         const targetCollection = document.querySelectorAll('.forms__form');
         if (target) {
-            evt.preventDefault();
             targetCollection.forEach((item) => {
                 if (item.classList.contains('form-active')) {
                     item.classList.remove('form-active')
@@ -26,7 +25,7 @@ export class SignUpPage extends core.Component {
         };
     }
 
-    isActiveForm = () => {
+    componentDidMount() {
         const linkCollection = document.querySelectorAll('.forms__form');
         linkCollection.forEach((item, index) => {
             if (index === 0) {
@@ -35,16 +34,6 @@ export class SignUpPage extends core.Component {
         });
         this.addEventListener('click', this.onClick);
     }
-
-    componentDidMount() {
-        this.isActiveForm();
-        this.addEventListener('validate-controls', this.validate);
-    }
-
-    componentWillUnmount() {
-        this.removeEventListener('click', this.onClick);
-    }
-
 
     render() {
         return `

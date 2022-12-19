@@ -77,7 +77,6 @@ export class SignInForm extends core.Component {
     }
 
     validate = (evt) => {
-        console.log(evt.detail)
         this.setState((state) => {
             return {
                 ...state,
@@ -109,12 +108,11 @@ export class SignInForm extends core.Component {
     componentDidMount() {
         this.addEventListener('click', this.validateForm);
         this.addEventListener('validate-controlls', this.validate);
-        this.addEventListener(this.click, this.getForm);
+        this.addEventListener('submit', this.form.handleSubmit(this.registerUser));
     }
 
     componentWillUnmount() {
         this.removeEventListener('validate-controlls', this.validate);
-        this.addEventListener('submit', this.form.handleSubmit(this.registerUser));
     }
 
     render() { 

@@ -1,5 +1,5 @@
-import { CloudService } from "./Cloud";
-import { getFirestore, addDoc, collection, deleteDoc, doc, getDocs, getFirestore, updateDoc } from 'firebase/firestore';
+import { cloudService } from "./Cloud";
+import { addDoc, collection, deleteDoc, doc, getDocs, getFirestore, updateDoc } from 'firebase/firestore';
 
 
 export class Database {
@@ -29,13 +29,6 @@ export class Database {
         return deleteDoc(document);
     }
 
-    // static getInstance() {
-    //     if (!Database.instance) {
-    //         Database.instance = new Database()
-    //     }
-
-    //     return Database.instance
-    // }
 }
 
 export const dataBase = new Database();

@@ -1,4 +1,5 @@
 import * as core from "../Component";
+import './router.scss'
 
 export class RouteLink extends core.Component {
     constructor() {
@@ -10,7 +11,7 @@ export class RouteLink extends core.Component {
     static get observedAttributes() {
         return ['link']
     }
-s
+
     onClick = (evt) => {
         evt.preventDefault();
         this.dispatch('change-route', { target: this.props.path })
@@ -21,18 +22,18 @@ s
     }
 
     componentWillUnmount() {
-        this.removeEventListener('click', this.onClick)
+        this.removeEventListener('click', this.onClick);
     }
 
     render() {
         return `
-            <a href="${this.props.path}" class="header__navigation--link">
-                ${this.props.icon 
-                    ? `<img src="${this.props.icon}" 
+            <a href="${this.props.path}" class="header__navigation--link ${this.props.clasname ?? ''}">
+                ${this.props.icon
+                ? `<img src="${this.props.icon}" 
                         alt="hamburger" 
                         class="header__navigation--icon"
                         >`
-                    : ''}
+                : ''}
                 <span>${this.props.title}</span>
                 <slot></slot>
             </a>

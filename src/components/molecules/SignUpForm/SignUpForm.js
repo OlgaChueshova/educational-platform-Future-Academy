@@ -59,11 +59,9 @@ export class SignUpForm extends core.Component {
     }
 
     registerUser = (data) => {
-        console.log(data)
         this.toggleIsLoading();
         authService.signUp(data.email, data.password)
             .then((user) => {
-                console.log(user);
                 authService.user = user;
                 this.dispatch('change-route', { target: appRoutes.home })
             })
@@ -122,51 +120,55 @@ export class SignUpForm extends core.Component {
     render() {
         const { fields: { user, email, password } } = this.state;
         return `
-                <form class="sign-up-forms__form">
-                    <label for="sign-up" class="sign-up-forms__form--label">Регистрация</label>
-                    <div class="invalid-feedback">${this.state.error}</div>
-                    <div class="sign-up-forms__form--container">
-                        <sign-up-input
-                            value='${user.value}'
-                            type='text'
-                            placeholder='Введите ваше имя'
-                            control-name='user'
-                            class-name='sign-up-forms__form--name'
-                            is-valid='${user.isValid}'
-                            is-touched='${user.isTouched}'
-                            error-message='${user.errors?.message}'
-                        ></sign-up-input>
-                        <sign-up-input
-                            value='${email.value}'
-                            type='email'
-                            placeholder='Введите ваш e-mail'
-                            control-name='email'
-                            class-name='sign-up-forms__form--email'
-                            is-valid='${email.isValid}'
-                            is-touched='${email.isTouched}'
-                            error-message='${email.errors?.message}'
-                        ></sign-up-input>
-                        <sign-up-input
-                            value='${password.value}'
-                            type='password'
-                            placeholder='Введите пароль'
-                            control-name='password'
-                            class-name='sign-up-forms__form--password'
-                            is-valid='${password.isValid}'
-                            is-touched='${password.isTouched}'
-                            error-message='${password.errors?.message}'
-                        ></sign-up-input>
-                        <p class="sign-up-networks__title">Зарегистрироваться с помощью соцсетей:</p>
-                        <it-net-list
-                            class="sign-up-forms__form--networks sign-up-networks"
-                            networks='${JSON.stringify(this.networks)}'
-                        ></it-net-list>
-                        <button
-                            class="sign-up-forms__form--button"
-                            type="submit" 
-                        >Зарегистрироваться</button>
-                    </div>
-                </form>
+            ${this.state.isLoading 
+                ? `<it-preloader is-loading="${this.state.isLoading}" class="preloader"></it-preloader>` 
+                : `
+                    <form class="sign-up-forms__form">
+                        <label for="sign-up" class="sign-up-forms__form--label">Регистрация</label>
+                        <div class="invalid-feedback">${this.state.error}</div>
+                        <div class="sign-up-forms__form--container">
+                            <sign-up-input
+                                value='${user.value}'
+                                type='text'
+                                placeholder='Введите ваше имя'
+                                control-name='user'
+                                class-name='sign-up-forms__form--name'
+                                is-valid='${user.isValid}'
+                                is-touched='${user.isTouched}'
+                                error-message='${user.errors?.message}'
+                            ></sign-up-input>
+                            <sign-up-input
+                                value='${email.value}'
+                                type='email'
+                                placeholder='Введите ваш e-mail'
+                                control-name='email'
+                                class-name='sign-up-forms__form--email'
+                                is-valid='${email.isValid}'
+                                is-touched='${email.isTouched}'
+                                error-message='${email.errors?.message}'
+                            ></sign-up-input>
+                            <sign-up-input
+                                value='${password.value}'
+                                type='password'
+                                placeholder='Введите пароль'
+                                control-name='password'
+                                class-name='sign-up-forms__form--password'
+                                is-valid='${password.isValid}'
+                                is-touched='${password.isTouched}'
+                                error-message='${password.errors?.message}'
+                            ></sign-up-input>
+                            <p class="sign-up-networks__title">Зарегистрироваться с помощью соцсетей:</p>
+                            <it-net-list
+                                class="sign-up-forms__form--networks sign-up-networks"
+                                networks='${JSON.stringify(this.networks)}'
+                            ></it-net-list>
+                            <button
+                                class="sign-up-forms__form--button"
+                                type="submit" 
+                            >Зарегистрироваться</button>
+                        </div>
+                    </form>
+                `}
            `
     }
 }

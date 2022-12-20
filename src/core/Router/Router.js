@@ -56,7 +56,6 @@ export class Router extends HTMLElement {
         this.navigate(evt.detail.target)
     }
 
-
     connectedCallback() {
         this.navigate(window.location.pathname);
         this.addEventListener('popstate', this.onPopState);
@@ -65,7 +64,7 @@ export class Router extends HTMLElement {
 
     disconnectedCallback() {
         this.removeEventListener('popstate', this.onPopState);
-        this.removeEventListener('change-route', this.onChangeRoute)
+        window.removeEventListener('change-route', this.onChangeRoute)
     }
 }
 

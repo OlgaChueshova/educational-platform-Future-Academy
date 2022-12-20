@@ -89,7 +89,16 @@ export class Header extends core.Component {
                 icon: '../../../assets/images/icons/person.svg',
                 icon2: '../../../assets/images/icons/person-white.svg',
                 path: '/signUp',
-                component: 'sign-up-page'
+                component: 'sign-up-page',
+                clasname: 'sign-in-link'
+            },
+            {
+                title: 'Выйти',
+                label: 'Person',
+                icon: '../../../assets/images/icons/person.svg',
+                icon2: '../../../assets/images/icons/person-white.svg',
+                path: '/admin',
+                clasname: 'sign-out-link'
             },
         ];
         this.whiteLinks = [
@@ -172,7 +181,15 @@ export class Header extends core.Component {
                 label: 'Person',
                 icon: '../../../assets/images/icons/person-white.svg',
                 path: '/signUp',
-                component: 'sign-up-page'
+                component: 'sign-up-page',
+                clasname: 'sign-in-link'
+            },
+            {
+                title: 'Выйти',
+                label: 'Person',
+                icon: '../../../assets/images/icons/person-white.svg',
+                path: '/',
+                clasname: 'sign-out-link'
             },
         ];
         this.logo = {
@@ -186,7 +203,6 @@ export class Header extends core.Component {
     }
 
     render() {
-     
         return `
         <header class="header header-wrapper">
             <it-logo 
@@ -199,9 +215,9 @@ export class Header extends core.Component {
             </it-logo>
             <header-navigation 
                 links='${JSON.parse(this.getAttribute('is-dark'))
-                    ? `${JSON.stringify(this.whiteLinks)}`
-                    : `${JSON.stringify(this.links)}`
-                }' 
+                ? `${JSON.stringify(this.whiteLinks)}`
+                : `${JSON.stringify(this.links)}`
+            }' 
                 class="header__navigation"
                 >
             </header-navigation>
@@ -212,19 +228,3 @@ export class Header extends core.Component {
 
 customElements.define('it-header', Header)
 
-
-// componentDidMount() {
-//     console.log(this.props)
-//     if (JSON.parse(this.getAttribute('is-dark'))) {
-//         this.links = this.links.map((item) => {
-//             if(item.icon2 && item.icon) {
-//                 return  {
-//                     ...item,
-//                     icon: item.icon2,
-//                 }
-//             }
-//             return item;
-//         })
-//         this.render()
-//     }
-// }

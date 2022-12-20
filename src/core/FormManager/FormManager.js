@@ -6,7 +6,6 @@ export class FormManager {
     }
 
     handleSubmit = (callback) => {
-        console.log('jbhvgc')
         return (evt) => {
             evt.preventDefault();
             const formData = new FormData(evt.target);
@@ -20,12 +19,9 @@ export class FormManager {
 
     init(ref, scheme) {
         this.ref = ref;
-        console.log(ref)
         this.scheme = scheme;
         const fields = Object.keys(scheme);
         fields.forEach((key) => {
-            console.log(key)
-            console.log(ref.querySelector(`input[name="${key}"]`))
             return ref.querySelector(`input[name="${key}"]`).addEventListener('blur', this.validate(key));
         })
     }

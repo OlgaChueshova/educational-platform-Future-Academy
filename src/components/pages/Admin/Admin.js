@@ -1,11 +1,59 @@
+import { appRoutes } from '../../../constants/appRoutes';
 import * as core from '../../../core';
+import { FormManager } from '../../../core';
+import { authService } from '../../../services/Auth';
+import { Preloader } from '../../atoms';
+import { storageService } from '../../../services/Storage';
 import './admin.scss'
+import { dataBase } from '../../../services/Database';
 
 export class AdminPage extends core.Component {
     constructor() {
         super();
         this.state = {
             isDark: true,
+            isloading: false
+        }
+
+        this.form = new FormManager();
+    }
+
+    toggleIsLoading() {
+        this.setState((state) => {
+            return {
+                ...state,
+                isLoading: !this.state.isLoading,
+            }
+        })
+    }
+
+    createCourse = (data) => {
+        this.toggleIsLoading();
+        storageService.uploadVideo(data.video)
+            .then((snapshot) => {
+                storageService.getDownloadURL(snapshot.ref)
+                    .then((url) => {
+                        dataBase
+                            .create('course', {
+                                ...data,
+                                video: url,
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                            });
+                    });
+            })
+            .finally(() => {
+                this.toggleIsLoading();
+            })
+
+    }
+
+    componentDidMount() {
+        this.form.init(this.querySelector('.admin-form'), {});
+        this.addEventListener('submit', this.form.handleSubmit(this.createCourse))
+        if (!authService.user) {
+            this.dispatch('change-route', { target: appRoutes[this.props.path ?? 'signUp'] });
         }
     }
 
@@ -17,7 +65,11 @@ export class AdminPage extends core.Component {
             </it-header>
 
             <main class="admin">
-                <form>
+                <div>
+                    ${this.state.isLoading
+                ? `<it-preloader is-loading="${this.state.isLoading}" class="preloader"></it-preloader>`
+                : `
+                    <form class='admin-form send-course'>
                     <fieldset class="admin-form__groop">
                         <legend class="admin-form__groop--title">Содержание страницы курса</legend>
                         <div class="input-group input-group-sm mb-3">
@@ -54,19 +106,22 @@ export class AdminPage extends core.Component {
 
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Видео</label>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" type="file" id="formFile" name="video">
                         </div>
 
-                        <div class="mb-3">
-                            <label for="formFileMultiple" class="form-label">Фото для слайдера</label>
-                            <input class="form-control" type="file" id="formFileMultiple" multiple>
-                        </div>
+                      
                         
                         <button type="submit" class="btn btn-primary admin-form__groop--button">Добавить курс</button>
                     </fieldset>
-                </form>
+                </form>       
 
-                <form class="admin-form">
+                        `
+            }
+
+            ${this.state.isLoading
+                ? `<it-preloader is-loading="${this.state.isLoading}" class="preloader"></it-preloader>`
+                : `
+                    <form class="admin-form send-review">
                     <fieldset class="admin-form__groop">
                         <legend class="admin-form__groop--title">Отзывы студентов</legend>
                         <div class="mb-3">
@@ -90,8 +145,10 @@ export class AdminPage extends core.Component {
                         
                         <button type="submit" class="btn btn-primary admin-form__groop--button">Добавить отзыв</button>
                     </fieldset>
-                </form>
-
+                </form>       
+                        `
+            }
+                </div>
                 <img class="admin__img--cross" src="../../../assets/images/icons/graphic-arts/cross.svg" alt="cross">
                 <img class="admin__img--cross--little" src="../../../assets/images/icons/graphic-arts/cross.svg" alt="cross">
                 <img class="admin__img--circle" src="../../../assets/images/icons/graphic-arts/circle.svg" alt="circle">

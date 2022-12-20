@@ -21,8 +21,8 @@ export class Preloader extends Component {
                     </div>
                     `
                 : ''
-            }
-            <slot></slot>   
+                }
+                <slot></slot>   
             </div> 
         `
     }

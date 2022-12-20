@@ -7,6 +7,7 @@ import { NetList } from '../NetList';
 import { Preloader } from '../../atoms';
 import { initialState } from './InitialState';
 import { authService } from '../../../services/Auth';
+import { appRoutes } from '../../../constants/appRoutes';
 import './signIn.scss';
 
 export class SignInForm extends core.Component {
@@ -57,11 +58,13 @@ export class SignInForm extends core.Component {
         })
     }
 
-    registerUser = (data) => {
+    signIn = (data) => {
         this.toggleIsLoading();
-        authService.signUp(data.email, data.password)
+        authService.signIn(data.email, data.password)
             .then((user) => {
-                console.log(user)
+                authService.user = user;
+                this.dispatch('change-route', { target: appRoutes.home });
+                this.dispatch('sign-in');
             })
             .catch((error) => {
                 this.setState((state) => {
@@ -108,7 +111,7 @@ export class SignInForm extends core.Component {
     componentDidMount() {
         this.addEventListener('click', this.validateForm);
         this.addEventListener('validate-controlls', this.validate);
-        this.addEventListener('submit', this.form.handleSubmit(this.registerUser));
+        this.addEventListener('submit', this.form.handleSubmit(this.signIn));
     }
 
     componentWillUnmount() {
@@ -118,57 +121,61 @@ export class SignInForm extends core.Component {
     render() { 
         const { fields: { user, email, password } } = this.state;
         return `
-                <form method='get' name="sign-in" class="sign-in-forms__form">
-                    <label for="sign-in" class="sign-in-forms__form--label">Вход</label>
-                    <div class="invalid-feedback">${this.state.error}</div>
-                    <div class="sign-in-forms__form--container">
-                        <sign-up-input
-                            value='${user.value}'
-                            type='text'
-                            placeholder='Введите ваше имя'
-                            control-name='user'
-                            class-name='sign-in-forms__form--name'
-                            is-valid='${user.isValid}'
-                            is-touched='${user.isTouched}'
-                            error-message='${user.errors?.message}'
-                        >
-                        </sign-up-input>
-                        <sign-up-input
-                            value='${email.value}'
-                            type='email'
-                            placeholder='Введите ваш e-mail'
-                            control-name='email'
-                            class-name='sign-in-forms__form--email'
-                            is-valid='${email.isValid}'
-                            is-touched='${email.isTouched}'
-                            error-message='${email.errors?.message}'
-                        >
-                        </sign-up-input>
-                        <sign-up-input
-                            value='${password.value}'
-                            type='password'
-                            placeholder='Введите пароль'
-                            control-name='password'
-                            class-name='sign-in-forms__form--password'
-                            is-valid='${password.isValid}'
-                            is-touched='${password.isTouched}'
-                            error-message='${password.errors?.message}'
-                        >
-                        </sign-up-input>
-                        <p class="sign-in-networks__title">Войти с помощью соцсетей:</p>
-                        <it-net-list
-                            class="sign-in-forms__form--networks sign-up-networks"
-                            networks='${JSON.stringify(this.networks)}'
-                        >
-                        </it-net-list>
-                        <button
-                            class="sign-in-forms__form--button"
-                            type="submit" 
-                            eventType=""
-                            content="Войти"
-                        >Войти</button>
-                    </div>
-                </form>
+            ${this.state.isLoading 
+                ? `<it-preloader is-loading="${this.state.isLoading}" class="preloader"></it-preloader>` 
+                : `
+                    <form method='get' name="sign-in" class="sign-in-forms__form">
+                        <label for="sign-in" class="sign-in-forms__form--label">Вход</label>
+                        <div class="invalid-feedback">${this.state.error}</div>
+                        <div class="sign-in-forms__form--container">
+                            <sign-up-input
+                                value='${user.value}'
+                                type='text'
+                                placeholder='Введите ваше имя'
+                                control-name='user'
+                                class-name='sign-in-forms__form--name'
+                                is-valid='${user.isValid}'
+                                is-touched='${user.isTouched}'
+                                error-message='${user.errors?.message}'
+                            >
+                            </sign-up-input>
+                            <sign-up-input
+                                value='${email.value}'
+                                type='email'
+                                placeholder='Введите ваш e-mail'
+                                control-name='email'
+                                class-name='sign-in-forms__form--email'
+                                is-valid='${email.isValid}'
+                                is-touched='${email.isTouched}'
+                                error-message='${email.errors?.message}'
+                            >
+                            </sign-up-input>
+                            <sign-up-input
+                                value='${password.value}'
+                                type='password'
+                                placeholder='Введите пароль'
+                                control-name='password'
+                                class-name='sign-in-forms__form--password'
+                                is-valid='${password.isValid}'
+                                is-touched='${password.isTouched}'
+                                error-message='${password.errors?.message}'
+                            >
+                            </sign-up-input>
+                            <p class="sign-in-networks__title">Войти с помощью соцсетей:</p>
+                            <it-net-list
+                                class="sign-in-forms__form--networks sign-up-networks"
+                                networks='${JSON.stringify(this.networks)}'
+                            >
+                            </it-net-list>
+                            <button
+                                class="sign-in-forms__form--button"
+                                type="submit" 
+                                eventType=""
+                                content="Войти"
+                            >Войти</button>
+                        </div>
+                    </form>
+                `}
           `
     }
 }

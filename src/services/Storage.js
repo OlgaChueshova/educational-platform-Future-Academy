@@ -12,12 +12,12 @@ class Storage {
     }
 
     uploadVideo(file) {
-        const videoRef = ref(this.storage, `./videos/${file.name}`);
+        const videoRef = ref(this.storage, `./video/${file.name}`);
         return uploadBytes(videoRef, file);
     }
 
     getDownloadURL(ref) {
-        return this.getDownloadURL(ref);
+        return getDownloadURL(ref);
     }
 }
 

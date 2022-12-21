@@ -13,18 +13,18 @@ export const appCourses = {
         value: 'Взрослым'
        },
     ],
-    duration: [
+    durationGroup: [
        {
-        label: 'Детям',
-        value: 'Детям'
+        label: '3',
+        value: '3'
        },
        {
-        label: 'Подросткам',
-        value: 'Подросткам'
+        label: '6',
+        value: '6'
        },
        {
-        label: 'Взрослым',
-        value: 'Взрослым'
+        label: '12',
+        value: '12'
        },
     ],
 }

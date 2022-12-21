@@ -7,6 +7,8 @@ import { storageService } from '../../../services/Storage';
 import { dataBase } from '../../../services/Database';
 import { appCourses } from '../../../constants/appCourses';
 import { Validator } from '../../../core';
+import { initialCoursesState } from './initialCoursesState';
+import { signUpInput } from '../../atoms';
 import './admin.scss'
 
 export class AdminPage extends core.Component {
@@ -14,7 +16,74 @@ export class AdminPage extends core.Component {
         super();
         this.state = {
             isDark: true,
-            isloading: false
+            isloading: false,
+            error: '',
+            courseFields: {
+                ...initialCoursesState
+            },
+            reviewsFields: {},
+            attributes: {
+                title: {
+                    type: 'text',
+                    controlName: 'title',
+                    classNameGroup: 'input-group mb-3',
+                    spanGroup: 'Название курса'
+                },
+                subtitle: {
+                    type: 'text',
+                    controlName: 'subtitle',
+                    classNameGroup: 'input-group mb-3',
+                    spanGroup: 'Подзаголовок'
+                },
+                price: {
+                    type: 'text',
+                    controlName: 'price',
+                    classNameGroup: 'input-group mb-3',
+                    spanGroup: 'Стоимость',
+                    spanGroup2: 'руб.',
+                },
+                ageGroup: {
+                    type: 'text',
+                    controlName: 'ageGroup',
+                    classNameGroup: 'input-group mb-3',
+                    label: 'Возрастная категория',
+                    select: appCourses.ageGroup
+                },
+                durationGroup: {
+                    type: 'text',
+                    controlName: 'durationGroup',
+                    classNameGroup: 'input-group mb-3',
+                    label: 'Продолжительность курса',
+                    select: appCourses.durationGroup
+                },
+                description: {
+                    type: 'text',
+                    controlName: 'description',
+                    classNameGroup: 'mb-3',
+                    label: 'Краткое описание курса',
+                    textarea: 'textarea'
+                },
+                content: {
+                    type: 'text',
+                    controlName: 'content',
+                    classNameGroup: 'mb-3',
+                    label: 'Содержание курса',
+                    textarea: 'textarea'
+                },
+                video: {
+                    type: 'file',
+                    controlName: 'video',
+                    classNameGroup: 'mb-3',
+                    label: 'Видео',
+                },
+                fotos: {
+                    type: 'file',
+                    controlName: 'fotos',
+                    classNameGroup: 'mb-3',
+                    label: 'Фото для слайдера',
+                    multiple: 'multiple'
+                },
+            }
         }
 
         this.form = new FormManager();
@@ -59,154 +128,143 @@ export class AdminPage extends core.Component {
             })
     }
 
-    componentDidMount() {
-        this.addEventListener('click', (evt) => {
-            const formCourse = evt.target.closest('.send-course');
-            if (formCourse) {
-                this.form.init(formCourse, {
-                    title: [
-                        Validator.required("Поле не должно быть пустым")
-                    ],
-                    subtitle: [
-                        Validator.required("Поле не должно быть пустым")
-                    ],
-                    price: [
-                        Validator.required("Поле не должно быть пустым")
-                    ],
-                    duration: [
-                        Validator.required("Поле не должно быть пустым")
-                    ],
-                    ageGroup: [
-                        Validator.required("Выберите один из вариантов")
-                    ],
-                    durationGroup: [
-                        Validator.required("Выберите один из вариантов")
-                    ],
-                    description: [
-                        Validator.required("Поле не должно быть пустым")
-                    ],
-                    content: [
-                        Validator.required("Поле не должно быть пустым")
-                    ],
-                    video: [
-                        Validator.required("Поле не должно быть пустым")
-                    ],
-                    fotos: [
-                        Validator.required("Поле не должно быть пустым")
-                    ],
-                });
-                formCourse.addEventListener('validate-controlls', )
-                this.form.handleSubmit(this.createCourse);
+    validate = (evt) => {
+        console.log(evt.detail)
+        this.setState((state) => {
+            return {
+                ...state,
+                courseFields: {
+                    ...state.courseFields,
+                    ...evt.detail,
+                }
             }
         });
-        if (!authService.user) {
-            this.dispatch('change-route', { target: appRoutes[this.props.path ?? 'signUp'] });
+    }
+
+    validateForm = (evt) => {
+        if (evt.target.closest('.send-course')) {
+            this.form.init(evt.target.closest('.send-course'), {
+                title: [
+                    Validator.required("Поле не должно быть пустым")
+                ],
+                subtitle: [
+                    Validator.required("Поле не должно быть пустым")
+                ],
+                price: [
+                    Validator.required("Поле не должно быть пустым")
+                ],
+                video: [
+                    Validator.required("Поле не должно быть пустым")
+                ],
+                fotos: [
+                    Validator.required("Поле не должно быть пустым")
+                ],
+            });
         }
     }
 
-    render() {
-        return `
+        componentDidMount() {
+            this.addEventListener('click', this.validateForm);
+            this.addEventListener('validate-controlls', this.validate);
+            this.addEventListener('submit', this.form.handleSubmit(this.createCourse));
+            if (!authService.user) {
+                this.dispatch('change-route', { target: appRoutes[this.props.path ?? 'signUp'] });
+            }
+        }
+
+        render() {
+            return `
             <it-header 
                 class="header-dark" 
                 is-dark='${JSON.stringify(this.state.isDark)}'>
             </it-header>
 
             <main class="admin">
-                <div>
-                    ${this.state.isLoading
-                ? `<it-preloader is-loading="${this.state.isLoading}" class="preloader"></it-preloader>`
-                : `
+                <ul>
+                <li>   
+                ${this.state.isLoading
+                    ? `<it-preloader is-loading="${this.state.isLoading}" class="preloader"></it-preloader>`
+                    : `
                     <form class='admin-form send-course'>
-                    <fieldset class="admin-form__groop">
-                        <legend class="admin-form__groop--title">Содержание страницы курса</legend>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Название курса</span>
-                            <input name="title" type="text" class="form-control">
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Подзаголовок</span>
-                            <input name="subtitle" type="text" class="form-control">
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Стоимость</span>
-                            <input name="price" type="text" class="form-control">
-                            <span class="input-group-text">руб.</span>
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Срок обучения</span>
-                            <input name="duration" type="text" class="form-control">
-                            <span class="input-group-text">мес.</span>
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Возрастная категория</span>
-                            <select class="form-select" name="ageGroup">
-                                <option selected></option>
-                                ${appCourses.ageGroup.map((item) => {
-                                    return `<option value="${item.value}">${item.label}</option>`
-                                    }).join(' ')}
-                            </select>
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Продолжительность курса</span>
-                            <select class="form-select" name="durationGroup">
-                                <option selected></option>
-                                ${appCourses.duration.map((item) => {
-                                    return `<option value="${item.value}">${item.label}</option>`
-                                    }).join(' ')}
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Краткое описание курса</label>
-                            <textarea name="description" class="form-control" rows="3"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Содержание курса</label>
-                            <textarea name="content" class="form-control" rows="3"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="videoFile" class="form-label">Видео</label>
-                            <input name="video" class="form-control" type="file" id="videoFile">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Фото для слайдера</label>
-                            <input name="fotos" class="form-control" type="file" multiple>
-                        </div>
-                        <button type="submit" class="btn admin-form__groop--button send-course-btn">Добавить курс</button>
-                    </fieldset>
-                </form>       
-
-                        `
-            }
-
-            ${this.state.isLoading
-                ? `<it-preloader is-loading="${this.state.isLoading}" class="preloader"></it-preloader>`
-                : `
-                    <form class="admin-form send-review">
-                    <fieldset class="admin-form__groop">
-                        <legend class="admin-form__groop--title">Отзывы студентов</legend>
-                        <div class="mb-3">
-                            <label for="fotoFile" class="form-label">Фото</label>
-                            <input name="foto" class="form-control" type="file" id="fotoFile">
-                        </div>
-                        <div class="input-group input-group-sm mb-3">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">ФИО</span>
-                            <input name="name" type="text" class="form-control">
-                        </div>
-                        <div class="input-group input-group-sm mb-3">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Курс</span>
-                            <input name="course-name" type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="textarea3" class="form-label">Отзыв</label>
-                            <textarea name="review" class="form-control" id="textarea3" rows="3"></textarea>
-                        </div>      
-                        <button type="submit" class="btn admin-form__groop--button">Добавить отзыв</button>
-                    </fieldset>
-                </form>       
-                        `
-            }
-                </div>
+                        <fieldset class="admin-form__groop mb-5">
+                            <legend class="admin-form__groop--title mb-5">Содержание страницы курса</legend>
+                            ${Object.keys(this.state.courseFields).map((key) => {
+                                return `
+                                    ${this.state.attributes[key].textarea
+                                        ? `
+                                            <div class="mb-3">
+                                                <label class="form-label">${this.state.attributes[key].label}</label>
+                                                <textarea name="${this.state.attributes[key].controlName}" class="form-control" rows="3"></textarea>
+                                            </div>
+                                        `
+                                        : `
+                                            ${this.state.attributes[key].select
+                                            ? `
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text">${this.state.attributes[key].label}</span>
+                                                    <select class="form-select" name="${this.state.attributes[key].controlName}">
+                                                            ${this.state.attributes[key].select.map((item) => {
+                                                return `<option value="${item.value}">${item.label}</option>`
+                                            }).join(' ')}
+                                                    </select>
+                                                </div>
+                                                `
+                                            : `
+                                                    <sign-up-input
+                                                        value='${this.state.courseFields[key].value}'
+                                                        type='${this.state.attributes[key].type}'
+                                                        control-name='${this.state.attributes[key].controlName}'
+                                                        is-valid='${this.state.courseFields[key].isValid}'
+                                                        is-touched='${this.state.courseFields[key].isTouched}'
+                                                        error-message='${this.state.courseFields[key].errors?.message}'
+                                                        label='${this.state.attributes[key].label ?? ''}'
+                                                        span-group='${this.state.attributes[key].spanGroup ?? ''}'
+                                                        span-group-2='${this.state.attributes[key].spanGroup2 ?? ''}'
+                                                        class-name-group='${this.state.attributes[key].classNameGroup}'
+                                                        multiple='${this.state.attributes[key].multiple ?? ''}'
+                                                    >
+                                                    </sign-up-input>  
+                                                `
+                                        }
+                                        `
+                                    }`
+                                }).join(' ')}
+                            <button type="submit" class="btn admin-form__groop--button">Добавить курс</button>
+                        </fieldset>
+                    </form>  
+                `
+                }
+                </li>
+                <li>
+                ${this.state.isLoading
+                    ? `<it-preloader is-loading="${this.state.isLoading}" class="preloader"></it-preloader>`
+                    : `
+                        <form class="admin-form send-review">
+                        <fieldset class="admin-form__groop">
+                            <legend class="admin-form__groop--title">Отзывы студентов</legend>
+                            <div class="mb-3">
+                                <label for="fotoFile" class="form-label">Фото</label>
+                                <input name="foto" class="form-control" type="file" id="fotoFile">
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">ФИО</span>
+                                <input name="name" type="text" class="form-control">
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Курс</span>
+                                <input name="course-name" type="text" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="textarea3" class="form-label">Отзыв</label>
+                                <textarea name="review" class="form-control" id="textarea3" rows="3"></textarea>
+                            </div>      
+                            <button type="submit" class="btn admin-form__groop--button">Добавить отзыв</button>
+                        </fieldset>
+                    </form>       
+                            `
+                }
+                </li>
+                </ul>
                 <img class="admin__img--cross" src="../../../assets/images/icons/graphic-arts/cross.svg" alt="cross">
                 <img class="admin__img--cross--little" src="../../../assets/images/icons/graphic-arts/cross.svg" alt="cross">
                 <img class="admin__img--circle" src="../../../assets/images/icons/graphic-arts/circle.svg" alt="circle">
@@ -215,7 +273,9 @@ export class AdminPage extends core.Component {
                 <img class="admin__img--line2" src="../../../assets/images/icons/graphic-arts/Vector-5.svg" alt="line">
             </main>
             `
+        }
     }
-}
 
 customElements.define('admin-page', AdminPage)
+
+

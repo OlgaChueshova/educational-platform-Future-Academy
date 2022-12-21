@@ -19,11 +19,10 @@ export class FormManager {
 
     init(ref, scheme) {
         this.ref = ref;
-        console.log(ref)
         this.scheme = scheme;
         const fields = Object.keys(scheme);
         fields.forEach((key) => {
-            console.log(ref.querySelector(`select[name="${key}"]`))
+            console.log(key)
             return ref.querySelector(`input[name="${key}"]`).addEventListener('blur', this.validate(key));
         })
     }

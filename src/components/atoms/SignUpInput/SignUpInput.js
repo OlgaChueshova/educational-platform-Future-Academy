@@ -19,7 +19,8 @@ export class signUpInput extends Component {
             'span-group-2',
             'span-group',
             'label',
-            'class-name-group'
+            'class-name-group',
+            'multiple'
         ]
     }
 
@@ -28,7 +29,7 @@ export class signUpInput extends Component {
         const isAddClassName = JSON.parse(this.props['is-touched']) ? controlClassName : '';
         return `
             <div class="${this.props['class-name-group'] ?? ''}">
-                ${this.props.label ? `<label class="form-label">${this.props.label}</label>` : ''}
+                <label class="form-label">${this.props.label ?? ''}</label>
                 ${this.props['span-group'] ? `<span class="input-group-text">${this.props['span-group']}</span>` : ''}
                 <input  
                     name="${this.props['control-name']}" 
@@ -36,6 +37,7 @@ export class signUpInput extends Component {
                     placeholder="${this.props.placeholder ?? ''}"  
                     value='${this.props.value}'
                     class='form-control ${isAddClassName} ${this.props['class-name'] ?? ''}'
+                    ${this.props.multiple ?? ''}
                 />
                 ${this.props['span-group-2'] ? `<span class="input-group-text">${this.props['span-group-2']}</span>` : ''}
                 <div class="invalid-feedback">${this.props['error-message'] ?? ''}</div>

@@ -171,6 +171,7 @@ export class CoursesPage extends Component {
     render() {
         return `
         <it-header class="header-dark header-catalog" is-dark='${JSON.stringify(this.state.isDark)}'></it-header>
+        
         <main class="all-courses">
             <h3 class="all-courses__title">Все программы обучения</h3>
             <section class="studying-programs">

@@ -7,8 +7,13 @@ class Storage {
     }
 
     uploadFoto(file) {
-        const fotoRef = ref(this.storage, `./fotos/${file.name}`);
+        const fotoRef = ref(this.storage, `./foto/${file.name}`);
         return uploadBytes(fotoRef, file);
+    }
+
+    uploadFotos(files) {
+        const fotoRef = ref(this.storage, `./fotos/${files.name}`);
+        return uploadBytes(fotoRef, files);
     }
 
     uploadVideo(file) {

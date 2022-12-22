@@ -12,20 +12,21 @@ export class Card extends Component {
     }
 
     render() {
+        const { title, subtitle, description, durationGroup } = this.props;
         return `
             <li>
-                <a href="//" class="catalog-list__link">
+                <it-route-link href="//" class="catalog-list__link">
                     <hgroup>
-                        <h4 class="catalog-list__link--subtitle">${this.props.program}</h4>
-                        <h3 class="catalog-list__link--title">"${this.props.courseName}"</h3>
+                        <h4 class="catalog-list__link--subtitle">${subtitle}}</h4>
+                        <h3 class="catalog-list__link--title">"${title}"</h3>
                         <p class="catalog-list__link--description">
-                            ${this.props.descriptions}
+                            ${description}
                         </p>
                         <span class="catalog-list__link--duration">
-                            ${this.props.duration}
+                            ${durationGroup}<span>мес.</span>
                         </span>
                     </hgroup>
-                </a>
+                </it-route-link>
             </li> 
         `
     }

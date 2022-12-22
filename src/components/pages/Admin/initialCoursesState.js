@@ -47,7 +47,13 @@ export const initialCoursesState = {
         isTouched: false,
         isValid: false,
     },
-    fotos: {
+    foto: {
+        value: '',
+        errors: {},
+        isTouched: false,
+        isValid: false,
+    },
+    sliderFotos: {
         value: '',
         errors: {},
         isTouched: false,

@@ -9,6 +9,7 @@ import { appCourses } from '../../../constants/appCourses';
 import { Validator } from '../../../core';
 import { initialCoursesState } from './initialCoursesState';
 import { signUpInput } from '../../atoms';
+import { TextArea } from '../../atoms/Textarea/Textarea';
 import './admin.scss'
 
 export class AdminPage extends core.Component {
@@ -76,7 +77,13 @@ export class AdminPage extends core.Component {
                     classNameGroup: 'mb-3',
                     label: 'Видео',
                 },
-                fotos: {
+                foto: {
+                    type: 'file',
+                    controlName: 'foto',
+                    classNameGroup: 'mb-3',
+                    label: 'Главное фото',
+                },
+                sliderFotos: {
                     type: 'file',
                     controlName: 'fotos',
                     classNameGroup: 'mb-3',
@@ -104,23 +111,28 @@ export class AdminPage extends core.Component {
             .then((snapshot) => {
                 storageService.getDownloadURL(snapshot.ref)
                     .then((url) => {
-                        console.log(url)
-                        storageService.uploadFoto(data.fotos)
-                            .then((snapshots) => {
-                                storageService.getDownloadURL(snapshots.ref)
-                                    .then((urls) => {
-                                        console.log(urls)
-                                        dataBase
-                                            .create('courses', {
-                                                ...data,
-                                                video: url,
-                                                fotos: [...urls]
+                        storageService.uploadFoto(data.foto)
+                            .then((snapshot) => {
+                                storageService.getDownloadURL(snapshot.ref)
+                                    .then((url2) => {
+                                        storageService.uploadFotos(data.fotos)
+                                            .then((snapshot) => {
+                                                storageService.getDownloadURL(snapshot.ref)
+                                                    .then((url3) => {
+                                                        dataBase
+                                                            .create('courses', {
+                                                                ...data,
+                                                                video: url,
+                                                                foto: url2,
+                                                                fotos: url3
+                                                            })
+                                                            .catch((error) => {
+                                                                console.log(error);
+                                                            });
+                                                    })
                                             })
-                                            .catch((error) => {
-                                                console.log(error);
-                                            });
                                     })
-                            })
+                            })   
                     });
             })
             .finally(() => {
@@ -129,7 +141,18 @@ export class AdminPage extends core.Component {
     }
 
     validate = (evt) => {
-        console.log(evt.detail)
+        this.setState((state) => {
+            return {
+                ...state,
+                courseFields: {
+                    ...state.courseFields,
+                    ...evt.detail,
+                }
+            }
+        });
+    }
+
+    validateTextarea = (evt) => {
         this.setState((state) => {
             return {
                 ...state,
@@ -153,17 +176,12 @@ export class AdminPage extends core.Component {
                 price: [
                     Validator.required("Поле не должно быть пустым")
                 ],
-                video: [
-                    Validator.required("Поле не должно быть пустым")
-                ],
-                fotos: [
-                    Validator.required("Поле не должно быть пустым")
-                ],
             });
         }
     }
 
         componentDidMount() {
+            console.log(this.state.courses)
             this.addEventListener('click', this.validateForm);
             this.addEventListener('validate-controlls', this.validate);
             this.addEventListener('submit', this.form.handleSubmit(this.createCourse));
@@ -173,6 +191,7 @@ export class AdminPage extends core.Component {
         }
 
         render() {
+            console.log(this.state.courseFields)
             return `
             <it-header 
                 class="header-dark" 
@@ -192,10 +211,11 @@ export class AdminPage extends core.Component {
                                 return `
                                     ${this.state.attributes[key].textarea
                                         ? `
-                                            <div class="mb-3">
-                                                <label class="form-label">${this.state.attributes[key].label}</label>
-                                                <textarea name="${this.state.attributes[key].controlName}" class="form-control" rows="3"></textarea>
-                                            </div>
+                                            <it-textarea
+                                                validate-attr='${JSON.stringify(this.state.courseFields[key])}'
+                                                attributes='${JSON.stringify(this.state.attributes[key])}'
+                                            >
+                                            </it-textarea>
                                         `
                                         : `
                                             ${this.state.attributes[key].select
@@ -204,8 +224,8 @@ export class AdminPage extends core.Component {
                                                     <span class="input-group-text">${this.state.attributes[key].label}</span>
                                                     <select class="form-select" name="${this.state.attributes[key].controlName}">
                                                             ${this.state.attributes[key].select.map((item) => {
-                                                return `<option value="${item.value}">${item.label}</option>`
-                                            }).join(' ')}
+                                                                return `<option value="${item.value}">${item.label}</option>`
+                                                            }).join(' ')}
                                                     </select>
                                                 </div>
                                                 `

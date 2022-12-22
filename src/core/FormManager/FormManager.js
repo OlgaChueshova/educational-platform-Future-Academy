@@ -22,7 +22,9 @@ export class FormManager {
         this.scheme = scheme;
         const fields = Object.keys(scheme);
         fields.forEach((key) => {
-            console.log(key)
+            if(ref.querySelector(`textarea[name="${key}"]`)) {
+                return ref.querySelector(`textarea[name="${key}"]`).addEventListener('blur', this.validate(key));
+            }
             return ref.querySelector(`input[name="${key}"]`).addEventListener('blur', this.validate(key));
         })
     }
@@ -47,7 +49,7 @@ export class FormManager {
                 [key]: {
                     value,
                     errors: res,
-                    isTouched: 'true',
+                    isTouched: true,
                     isValid: Object.values(res).length === 0,
                 },
             });

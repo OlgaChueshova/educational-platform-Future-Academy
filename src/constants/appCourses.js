@@ -1,6 +1,10 @@
 export const appCourses = {
     ageGroup: [
        {
+        label: 'Все',
+        value: 'Все'
+       },
+       {
         label: 'Детям',
         value: 'Детям'
        },
@@ -15,6 +19,10 @@ export const appCourses = {
     ],
     durationGroup: [
        {
+        label: 'Все',
+        value: 'Все'
+       },
+       {
         label: '3',
         value: '3'
        },
@@ -28,3 +36,5 @@ export const appCourses = {
        },
     ],
 }
+
+

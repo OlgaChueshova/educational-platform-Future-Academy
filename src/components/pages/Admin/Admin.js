@@ -82,14 +82,7 @@ export class AdminPage extends core.Component {
                     controlName: 'foto',
                     classNameGroup: 'mb-3',
                     label: 'Главное фото',
-                },
-                sliderFotos: {
-                    type: 'file',
-                    controlName: 'fotos',
-                    classNameGroup: 'mb-3',
-                    label: 'Фото для слайдера',
-                    multiple: 'multiple'
-                },
+                }
             }
         }
 
@@ -115,24 +108,17 @@ export class AdminPage extends core.Component {
                             .then((snapshot) => {
                                 storageService.getDownloadURL(snapshot.ref)
                                     .then((url2) => {
-                                        storageService.uploadFotos(data.fotos)
-                                            .then((snapshot) => {
-                                                storageService.getDownloadURL(snapshot.ref)
-                                                    .then((url3) => {
-                                                        dataBase
-                                                            .create('courses', {
-                                                                ...data,
-                                                                video: url,
-                                                                foto: url2,
-                                                                fotos: url3
-                                                            })
-                                                            .catch((error) => {
-                                                                console.log(error);
-                                                            });
-                                                    })
+                                        dataBase
+                                            .create('courses', {
+                                                ...data,
+                                                video: url,
+                                                foto: url2
                                             })
+                                            .catch((error) => {
+                                                console.log(error);
+                                            });
                                     })
-                            })   
+                            })
                     });
             })
             .finally(() => {
@@ -141,18 +127,6 @@ export class AdminPage extends core.Component {
     }
 
     validate = (evt) => {
-        this.setState((state) => {
-            return {
-                ...state,
-                courseFields: {
-                    ...state.courseFields,
-                    ...evt.detail,
-                }
-            }
-        });
-    }
-
-    validateTextarea = (evt) => {
         this.setState((state) => {
             return {
                 ...state,
@@ -180,19 +154,21 @@ export class AdminPage extends core.Component {
         }
     }
 
-        componentDidMount() {
-            console.log(this.state.courses)
-            this.addEventListener('click', this.validateForm);
-            this.addEventListener('validate-controlls', this.validate);
-            this.addEventListener('submit', this.form.handleSubmit(this.createCourse));
-            if (!authService.user) {
-                this.dispatch('change-route', { target: appRoutes[this.props.path ?? 'signUp'] });
-            }
+    componentDidMount() {
+        if (!authService.user) {
+            this.dispatch('change-route', { target: appRoutes[this.props.path ?? 'signUp'] });
         }
+        this.addEventListener('click', this.validateForm);
+        this.addEventListener('validate-controlls', this.validate);
+        this.addEventListener('submit', this.form.handleSubmit(this.createCourse));
+    }
 
-        render() {
-            console.log(this.state.courseFields)
-            return `
+    componentWillUnmount() {
+        this.removeEventListener('validate-controlls', this.validate);
+    }
+
+    render() {
+        return `
             <it-header 
                 class="header-dark" 
                 is-dark='${JSON.stringify(this.state.isDark)}'>
@@ -202,34 +178,34 @@ export class AdminPage extends core.Component {
                 <ul>
                 <li>   
                 ${this.state.isLoading
-                    ? `<it-preloader is-loading="${this.state.isLoading}" class="preloader"></it-preloader>`
-                    : `
+                ? `<it-preloader is-loading="${this.state.isLoading}" class="preloader"></it-preloader>`
+                : `
                     <form class='admin-form send-course'>
                         <fieldset class="admin-form__groop mb-5">
                             <legend class="admin-form__groop--title mb-5">Содержание страницы курса</legend>
                             ${Object.keys(this.state.courseFields).map((key) => {
-                                return `
+                    return `
                                     ${this.state.attributes[key].textarea
-                                        ? `
+                            ? `
                                             <it-textarea
                                                 validate-attr='${JSON.stringify(this.state.courseFields[key])}'
                                                 attributes='${JSON.stringify(this.state.attributes[key])}'
                                             >
                                             </it-textarea>
                                         `
-                                        : `
+                            : `
                                             ${this.state.attributes[key].select
-                                            ? `
+                                ? `
                                                 <div class="input-group mb-3">
                                                     <span class="input-group-text">${this.state.attributes[key].label}</span>
                                                     <select class="form-select" name="${this.state.attributes[key].controlName}">
                                                             ${this.state.attributes[key].select.map((item) => {
-                                                                return `<option value="${item.value}">${item.label}</option>`
-                                                            }).join(' ')}
+                                    return `<option value="${item.value}">${item.label}</option>`
+                                }).join(' ')}
                                                     </select>
                                                 </div>
                                                 `
-                                            : `
+                                : `
                                                     <sign-up-input
                                                         value='${this.state.courseFields[key].value}'
                                                         type='${this.state.attributes[key].type}'
@@ -245,20 +221,20 @@ export class AdminPage extends core.Component {
                                                     >
                                                     </sign-up-input>  
                                                 `
-                                        }
+                            }
                                         `
-                                    }`
-                                }).join(' ')}
+                        }`
+                }).join(' ')}
                             <button type="submit" class="btn admin-form__groop--button">Добавить курс</button>
                         </fieldset>
                     </form>  
                 `
-                }
+            }
                 </li>
                 <li>
                 ${this.state.isLoading
-                    ? `<it-preloader is-loading="${this.state.isLoading}" class="preloader"></it-preloader>`
-                    : `
+                ? `<it-preloader is-loading="${this.state.isLoading}" class="preloader"></it-preloader>`
+                : `
                         <form class="admin-form send-review">
                         <fieldset class="admin-form__groop">
                             <legend class="admin-form__groop--title">Отзывы студентов</legend>
@@ -282,7 +258,7 @@ export class AdminPage extends core.Component {
                         </fieldset>
                     </form>       
                             `
-                }
+            }
                 </li>
                 </ul>
                 <img class="admin__img--cross" src="../../../assets/images/icons/graphic-arts/cross.svg" alt="cross">
@@ -293,9 +269,23 @@ export class AdminPage extends core.Component {
                 <img class="admin__img--line2" src="../../../assets/images/icons/graphic-arts/Vector-5.svg" alt="line">
             </main>
             `
-        }
     }
+}
 
 customElements.define('admin-page', AdminPage)
 
 
+// sliderFotos: {
+//     type: 'file',
+//     controlName: 'fotos',
+//     classNameGroup: 'mb-3',
+//     label: 'Фото для слайдера',
+//     multiple: 'multiple'
+// },
+// ,
+//     sliderFotos: {
+//         value: '',
+//         errors: {},
+//         isTouched: false,
+//         isValid: false,
+//     },

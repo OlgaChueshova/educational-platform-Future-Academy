@@ -1,6 +1,7 @@
 .catalog-list__item {
+    display: flex;
     width: 436px;
-    height: 262px;
+    height: min-content;
     border-radius: 20px;
 }
 
@@ -48,11 +49,13 @@
 }
 
 .catalog-list__link--description {
-    display: inline-block;
-    margin-bottom: 26px;
+    display: block;
+    margin-bottom: 15px;
     margin-top: 10px;
     line-height: 18px;
     color: var(--gray-2);
+    max-height: 100px;
+    overflow: overlay;
 }
 
 .catalog-list__link--duration {

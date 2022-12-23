@@ -52,11 +52,5 @@ export const initialCoursesState = {
         errors: {},
         isTouched: false,
         isValid: false,
-    },
-    sliderFotos: {
-        value: '',
-        errors: {},
-        isTouched: false,
-        isValid: false,
-    },
+    }
 }

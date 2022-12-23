@@ -8,20 +8,7 @@ export class ProductList extends Component {
         super();
         this.state = {
             toggleIsLoading: false,
-            courses: {
-                ageGroup: {
-                    'Всем': [],
-                    'Детям': [],
-                    'Подросткам': [],
-                    'Взрослым': [],
-                },
-                durationGroup: {
-                    'Все': [],
-                    3: [],
-                    6: [],
-                    12: [],
-                },
-            }
+            courses: []
         }
         this.props = JSON.parse(this.getAttribute('data'))
     }
@@ -39,7 +26,7 @@ export class ProductList extends Component {
         })
     }
 
-    getMovies = () => {
+    getCourses = () => {
         this.toggleIsLoading();
         dataBase.read('courses').then((data) => {
             this.setState((state) => {
@@ -55,39 +42,22 @@ export class ProductList extends Component {
     }
 
     componentDidMount() {
-        this.getMovies();
+        this.getCourses();
     }
 
     render() {
         console.log(this.state.courses)
         return `
-        <ul class="studying-programs__layout--list catalog-list">
-            ${Object.keys(this.state.courses).map((key) => {
-            return `
-                    <li>
-                        <ul>
-                            ${Object.keys(this.state.courses[key]).map((subkey) => {
-                                return `
-                                    <li>
-                                        <ul>
-                                            ${subkey.map((item) => {
-                                                return `
-                                                    <it-card 
-                                                        card='${JSON.stringify(item)}' 
-                                                        class="catalog-list__item">
-                                                    </it-card>
-                                                `
-                                                }).join(' ')
-                                            }
-                                        </ul>
-                                    </li>
-                               `
-                            }).join(' ')}
-                        </ul>
-                    </li>
+        <div class="studying-programs__layout--list catalog-list">
+            ${this.state.courses.map((key) => {
+                return `
+                    <it-card 
+                        card='${JSON.stringify(key)}' 
+                        class="catalog-list__item">
+                    </it-card>
                 `
         }).join(' ')}
-        </ul>
+        </div>
         `
     }
 }

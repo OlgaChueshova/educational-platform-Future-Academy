@@ -8,14 +8,15 @@ export class InfoList extends Component {
     }
 
     static get observedAttributes() {
-        return ['items', 'title']
+        return ['items', 'title', 'description']
     }
 
     render() {
-        const {items, title} = this.props;
+        const {items, title, description} = this.props;
         return `
         <div>
             <h4 class="information__title">${title}</h4>
+            <p class="information__text">${description ?? ''}</p>
             <ul class="information__list">
                 ${JSON.parse(items).map((item) => {
                     return `

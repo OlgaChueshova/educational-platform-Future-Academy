@@ -3,7 +3,7 @@ import { Header } from "../../organizms";
 import { Catalog } from "../../molecules";
 import { Form } from "../../molecules";
 import { Owl } from "../../molecules";
-import { ProductSearch } from "../../molecules";
+import { ProductList } from "../../molecules";
 import './courses.scss'
 
 export class CoursesPage extends Component {
@@ -171,6 +171,7 @@ export class CoursesPage extends Component {
     render() {
         return `
         <it-header class="header-dark header-catalog" is-dark='${JSON.stringify(this.state.isDark)}'></it-header>
+        
         <main class="all-courses">
             <h3 class="all-courses__title">Все программы обучения</h3>
             <section class="studying-programs">
@@ -179,21 +180,8 @@ export class CoursesPage extends Component {
                     clasname="studying-programs__navigation"
                     title="Направление">
                 </it-catalog>
-                <product-search></product-search>
-            </section>
-            
-            <section class="form">
-                <div class="form-wrapper">
-                    <it-owl class='form__image' 
-                        title='Помочь с выбором?' 
-                        text='Оставьте заявку и наши специалисты свяжутся с вами,
-                        ответят на все вопросы и подберут подходящий вариант обучения.'>
-                    </it-owl>
-                    <it-form
-                        fields='${JSON.stringify(this.fields)}'
-                        class="form__blank"
-                    >
-                    </it-form>
+                <div>
+                    <products-list></products-list>
                 </div>
             </section>
         </main>

@@ -6,10 +6,28 @@ export class Link extends Component {
         super();
         this.props = JSON.parse(this.getAttribute('link'));
         this.state = {
-            isActive: false
+            isActive: false,
+            isLogged: false,
         }
         this.onMousemove = this.onMousemove.bind(this);
         this.onMouseout = this.onMouseout.bind(this);
+    }
+
+    isLogged = (evt) => {
+        this.setState((state) => {
+            return {
+                ...state,
+                isLogged: evt.detail,
+            }
+        })   
+    }
+    
+    onSignOut = (evt) => {
+        const target = evt.target.closest('.sign-out-link');
+        if(target) {
+            evt.preventDefault();
+            this.dispatch('sign-out');
+        }
     }
 
     onMousemove(evt) {
@@ -21,7 +39,6 @@ export class Link extends Component {
                 }
             });
         }
-        this.render();
     }
 
     onMouseout(evt) {
@@ -33,15 +50,18 @@ export class Link extends Component {
                 }
             });
         }
-        this.render();
     }
 
-    componentDidMount() {
+    componentDidMount() { 
+        window.addEventListener('is-logged', this.isLogged);
+        this.addEventListener('click', this.onSignOut);
         this.addEventListener('mousemove', this.onMousemove);
         this.addEventListener('mouseout', this.onMouseout);
     }
 
     componentWillUnmount() {
+        window.removeEventListener('is-logged', this.isLogged);
+        this.removeEventListener('click', this.onsignOut);
         this.removeEventListener('mousemove', this.onMousemove);
         this.removeEventListener('mouseout', this.onMouseout);
     }
@@ -52,14 +72,14 @@ export class Link extends Component {
 
     render() {
         return `
-            <a href='${this.props.path}' ${this.props.clasname ? `${this.props.clasname}` : ''}>
+            <a href='${this.props.path}' class='${this.props.clasname ?? ''}'>
                 ${this.props.icon
                 ? `<img src="${this.state.isActive
-                    ? `${this.props.icon2 ? this.props.icon2 : this.props.icon}`
+                    ? `${this.props.icon2 ?? this.props.icon}`
                     : `${this.props.icon}`}" 
                     alt="${this.props.label}">`
                 : ''}
-                <span>${this.props.title ? `${this.props.title}` : ''}</span>
+                <span>${this.props.title ?? ''}</span>
                 ${this.props.description
                 ? `<p>${this.props.description}</p>`
                 : ''

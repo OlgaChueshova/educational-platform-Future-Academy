@@ -1,7 +1,8 @@
 export const initialState = {
     signInFields: {
         title: 'Вход',
-        formName: 'sign-in',
+        label: 'sign-in-forms__form--label',
+        formName: 'sign-in-forms__form',
         fields: {
             user: {
                 value: '',
@@ -11,7 +12,7 @@ export const initialState = {
                 type: 'text',
                 text: 'Введите ваше имя',
                 controlName: 'user',
-                className: 'sign-up-forms__form--name'
+                className: 'sign-in-forms__form--name'
             },
             email: {
                 value: '',
@@ -21,7 +22,7 @@ export const initialState = {
                 type: 'email',
                 text: 'Введите ваш e-mail',
                 controlName: 'email',
-                className: 'sign-up-forms__form--email'
+                className: 'sign-in-forms__form--email'
             },
             password: {
                 value: '',
@@ -31,7 +32,7 @@ export const initialState = {
                 type: 'password',
                 text: 'Введите пароль',
                 controlName: 'password',
-                className: 'sign-up-forms__form--password'
+                className: 'sign-in-forms__form--password'
             }
         },
         networks:  [
@@ -65,7 +66,8 @@ export const initialState = {
     },
     signUpFields: {
         title: 'Регистрация',
-        formName: 'sign-up',
+        label: 'sign-up-forms__form--label',
+        formName: 'sign-up-forms__form',
         fields: {
             user: {
                 value: '',

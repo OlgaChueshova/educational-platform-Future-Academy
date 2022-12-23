@@ -1,29 +1,57 @@
 import { Component } from "../../../core";
+import { dataBase } from "../../../services/Database";
 import { Card } from "../Card";
 import './productList.scss'
 
 export class ProductList extends Component {
     constructor() {
         super();
-        this.props = JSON.parse(this.getAttribute('data'))
+        this.state = {
+            toggleIsLoading: false,
+            courses: []
+        }
     }
-    
-    static get observedAttributes() {
-        return ['data']
+
+    toggleIsLoading() {
+        this.setState((state) => {
+            return {
+                ...state,
+                isLoading: !this.state.isLoading,
+            }
+        })
+    }
+
+    getCourses = () => {
+        this.toggleIsLoading();
+        dataBase.read('courses').then((data) => {
+            this.setState((state) => {
+                return {
+                    ...state,
+                    courses: data
+                }
+            })
+        })
+            .finally(() => {
+                this.toggleIsLoading();
+            })
+    }
+
+    componentDidMount() {
+        this.getCourses();
     }
 
     render() {
         return `
-        <ul class="studying-programs__layout--list catalog-list">
-            ${this.props.map((item) => {
+        <div class="studying-programs__layout--list catalog-list">
+            ${this.state.courses.map((key) => {
                 return `
                     <it-card 
-                        card='${JSON.stringify(item)}' 
+                        card='${JSON.stringify(key)}' 
                         class="catalog-list__item">
                     </it-card>
                 `
-            }).join(' ')}
-        </ul>
+        }).join(' ')}
+        </div>
         `
     }
 }

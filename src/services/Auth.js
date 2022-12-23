@@ -23,8 +23,7 @@ export class AuthService {
 
     init() {
         return new Promise((resolve, reject) => {
-            onAuthStateChanged(
-                this.auth,
+            onAuthStateChanged(this.auth, 
                 (user) => {
                     resolve(user);
                 },

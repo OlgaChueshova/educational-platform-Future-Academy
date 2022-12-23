@@ -1,0 +1,89 @@
+.sign-in-forms__form {
+    width: 280px;
+    align-items: center;
+    border-bottom: 1px solid var(--gray-5);
+
+}
+
+.form-active .sign-in-forms__form--label {
+    border-bottom: 5px solid transparent;
+    border-image: linear-gradient(to right, #F7941D, #27AAE1);
+    border-image-slice: 1;
+}
+
+.form-active .sign-in-forms__form--container {
+    display: flex;
+}
+
+.sign-in-forms__form--container {
+    display: none;
+    position: absolute;
+    top: 90px;
+    left: 100px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sign-in-forms__form--label {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.sign-in-forms__form--container input {
+    width: 380px;
+    height: 50px;
+    background-color: #DDDFE6;
+    border-radius: 6px;
+    padding-left: 19px;
+    margin-top: 20px;
+    border: none !important;
+    outline: none !important;
+}
+
+.sign-in-networks__title {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px; 
+    text-align: center;
+    padding-top: 16px;
+}
+
+.sign-in-networks ul  {
+    display: flex;
+    flex-direction: row;
+    width: 250px;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 19px;
+    margin-bottom: 32px;
+}
+
+.sign-in-networks ul>li img:hover {
+    transform: scale(130%);
+    transition: 0.3s;
+}
+
+.sign-in-forms__form--button {
+    background-color: var(--orange);
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 26px;
+    color: white;
+    text-align: center;
+    outline: 0 !important;
+    border: none !important;
+    height: 50px;
+    width: 180px;
+}
+
+.sign-in-forms__form--button:hover {
+    background-color: #FFAE4D;
+} 

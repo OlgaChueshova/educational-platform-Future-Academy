@@ -4,7 +4,7 @@ import './owl.scss'
 export class Owl extends Component {
 
     static get observedAttributes() {
-        return ['title', 'text', 'lastword']
+        return ['title', 'text', 'lastword', 'class-name']
     }
 
     render() {
@@ -12,7 +12,7 @@ export class Owl extends Component {
         return `
             <div>
                 <img src="../../../assets/images/owl/owl.svg" alt="owl">
-                <div>
+                <div class="${this.props['class-name'] ?? ''}">
                     <p>${title ? title : ''}</p><br>
                     <p>${text}</p><br>
                     ${lastword ? `<p>${lastword}</p><br>` : ''}

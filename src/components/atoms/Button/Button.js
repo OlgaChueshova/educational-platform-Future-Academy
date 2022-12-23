@@ -14,18 +14,6 @@ playVideo = (evt) => {
     this.render();
 }
 
-    componentDidMount() {
-        this.addEventListener("click", (evt) => {
-            evt.preventDefault();
-            this.dispatch(this.props.eventType);
-        })
-        this.addEventListener('click', this.playVideo);
-    }
-
-    componentWillUnmount() {
-        this.removeEventListener('click', this.playVideo);
-    }
-
     static get observedAttributes() {
         return ['type', 'content', 'eventType', 'clasname', 'img']
     }

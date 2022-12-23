@@ -6,6 +6,7 @@ import { Slider } from "../../molecules/Slider/Slider";
 import { SliderGallery } from "../../molecules/SliderGallary/SliderGallery";
 import { Owl } from "../../molecules";
 import { SliderTeachers } from "../../molecules/SliderTeachers";
+import { dataBase } from "../../../services/Database";
 import './coursesDetail.scss';
 
 export class CoursesDetailPage extends core.Component {
@@ -13,6 +14,8 @@ export class CoursesDetailPage extends core.Component {
         super();
         this.state = {
             isDark: false,
+            isLoading: false,
+            course: null
         }
         this.fields = [
             {
@@ -207,14 +210,49 @@ export class CoursesDetailPage extends core.Component {
                     path: '../../../assets/images/icons/graphic-arts/video-vector2.svg'
                 }
             ],
-        }
+        };
     }
 
+    toggleIsLoading() {
+        this.setState((state) => {
+            return {
+                ...state,
+                isLoading: !this.state.isLoading,
+            }
+        })
+    }
+
+    static get observedAttributes() {
+        return ['id']
+    }
+
+    getCourse() {
+        this.toggleIsLoading();
+        dataBase
+          .getDocument("courses", this.props.id)
+          .then((data) => {
+            this.setState((state) => {
+              return {
+                ...state,
+                course: data,
+              };
+            });
+          })
+          .finally(() => {
+            this.toggleIsLoading();
+          });
+      }
+    
+      componentDidMount() {
+        this.getCourse();
+      }
+
     render() {
+        
         return `
         <it-header is-dark='${JSON.stringify(this.state.isDark)}'></it-header>
 
-    <main class="s">
+    <main class="course-detail">
         <div class="header-bottom-chess">
             <div class="header-bottom-chess__title">
                 <hgroup class="header-bottom-chess__title--group">

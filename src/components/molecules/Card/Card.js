@@ -28,19 +28,28 @@ export class Card extends Component {
     }
 
     render() {
-        const { title, subtitle, description, durationGroup, id } = this.props;
+        const { title, subtitle, description, durationGroup, id, video, foto, content } = this.props;
         return `
-                <a href="${appRoutes.courses}/:${id}" class="catalog-list__link">
-                    <hgroup>
-                        <h4 class="catalog-list__link--subtitle">${subtitle}}</h4>
-                        <h3 class="catalog-list__link--title">"${title}"</h3>
-                        <p class="catalog-list__link--description">
-                            ${description}
-                        </p>
-                        <span class="catalog-list__link--duration">
-                            ${durationGroup}<span>мес.</span>
-                        </span>
-                    </hgroup>
+                <a href="${appRoutes.courses}/:${id}" 
+                    class="catalog-list__link"
+                    subtitle='${subtitle}'
+                    description='${description}'
+                    durationGroup='${durationGroup}'
+                    id='${id}'
+                    video='${video}'
+                    foto='${foto}'
+                    content='${content}'
+                >
+                        <hgroup>
+                            <h4 class="catalog-list__link--subtitle">${subtitle}}</h4>
+                            <h3 class="catalog-list__link--title">"${title}"</h3>
+                            <p class="catalog-list__link--description">
+                                ${description}
+                            </p>
+                            <span class="catalog-list__link--duration">
+                                ${durationGroup}<span> мес.</span>
+                            </span>
+                        </hgroup>
                 </a>
         `
     }

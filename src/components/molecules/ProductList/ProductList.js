@@ -10,11 +10,6 @@ export class ProductList extends Component {
             toggleIsLoading: false,
             courses: []
         }
-        this.props = JSON.parse(this.getAttribute('data'))
-    }
-
-    static get observedAttributes() {
-        return ['data']
     }
 
     toggleIsLoading() {
@@ -46,7 +41,6 @@ export class ProductList extends Component {
     }
 
     render() {
-        console.log(this.state.courses)
         return `
         <div class="studying-programs__layout--list catalog-list">
             ${this.state.courses.map((key) => {

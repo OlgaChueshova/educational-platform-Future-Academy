@@ -31,7 +31,6 @@ export class SliderTeachers extends Component {
     }
 
     render() {
-        console.log(this.props)
         return `
             <div>
                 <h3 class="slider-teachers__title">Наши преподаватели</h3>

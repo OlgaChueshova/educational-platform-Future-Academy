@@ -1,14 +1,23 @@
 .catalog-list__item {
     display: flex;
-    width: 436px;
-    height: min-content;
+    width: 400px;
+    height: 300px;
     border-radius: 20px;
+    background-color: #a9e2ee;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    
 }
 
 .catalog-list__item:hover {
     transform: scale(110%);
     transition: 0.5s;
     box-shadow: 5px 3px 6px blue;
+    height: min-content;
+}
+
+.catalog-list__item:hover .catalog-list__link--description {
+    height: min-content;
 }
 
 .catalog-list__link {
@@ -29,7 +38,7 @@
 }
 
 .catalog-list__link--title {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 18px;
     line-height: 22px;
     color: var(--dark-blue);
@@ -54,8 +63,9 @@
     margin-top: 10px;
     line-height: 18px;
     color: var(--gray-2);
-    max-height: 100px;
-    overflow: overlay;
+    height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .catalog-list__link--duration {
@@ -63,66 +73,14 @@
     color: black;
 }
 
-.catalog-list__item:nth-of-type(1) {
-    background-color: #C7EEFF;
-    grid-area: num1;
-}
-
-.catalog-list__item:nth-of-type(2) {
-    background-color: #FFCE94;
-    grid-area: num2;
-}
-
-.catalog-list__item:nth-of-type(3) {
-    background-color: #FFE38E;
-    grid-area: num3;
-}
-
-.catalog-list__item:nth-of-type(4) {
-    background-color: #DDDDFF;
-    grid-area: num4;
-}
-
-.catalog-list__item:nth-of-type(5) {
-    background-color: #B8EFCF;
-    grid-area: num5;
-}
-
-.catalog-list__item:nth-of-type(6) {
-    background-color: #C7EEFF;
-    grid-area: num6;
-}
-
-.catalog-list__item:nth-of-type(7) {
-    background-color: #C5DDFF;
-    grid-area: num7;
-}
-
-.catalog-list__item:nth-of-type(8) {
-    background-color: #FFE9A8;
-    grid-area: num8;
-}
-
-.catalog-list__item:nth-of-type(9) {
-    background-color: #FFEEF6;
-    grid-area: num9;
-}
-
-.catalog-list__item:nth-of-type(10) {
-    background-color: #DDDDFF;
-    grid-area: num10;
-}
-
 .catalog-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-gap: 20px;
-    grid-template-areas: 'num1 num2'
-        'num3 num4'
-        'num5 num6'
-        'num7 num8'
-        'num9 num10';
+    display: flex;
+    width: 100%;
+    height: min-content;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     margin-top: 365px;
-    margin-bottom: 200px;
+    margin-bottom: 100px;
 }

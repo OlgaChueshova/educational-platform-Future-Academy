@@ -209,7 +209,6 @@ export class HomePage extends core.Component {
                 description: "Приглашаем всех желающих на бесплатную экскурсию<br>в мир востребованных профессий и полезных навыков",
                 link: {
                     title: "Записаться",
-                    clasname: "information-menu__list--link-btn",
                     icon: "../../../assets/images/icons/pointer-right.svg",
                     label: "right",
                     path: "*"
@@ -223,7 +222,6 @@ export class HomePage extends core.Component {
                 label: "monitor",
                 link: {
                     title: "Подробнее",
-                    clasname: "information-menu__list--link-btn",
                     icon: "../../../assets/images/icons/pointer-right.svg",
                     label: "right",
                     path: "*"

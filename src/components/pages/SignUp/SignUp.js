@@ -1,6 +1,6 @@
 import * as core from "../../../core";
+import { SignInForm } from "../../molecules/SignInForm";
 import { SignUpForm } from "../../molecules";
-import { SignInForm } from "../../molecules";
 import { Preloader } from "../../atoms";
 import './signUp.scss'
 
